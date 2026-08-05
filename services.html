@@ -388,33 +388,45 @@ RTL
 <p class="font-body-md text-body-md text-on-surface-variant max-w-[600px] mx-auto">Elevate your grooming routine with our carefully curated premium bundles.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<div class="bg-surface border border-outline-variant p-stack_md flex flex-col gap-stack_sm hover:border-secondary transition-all group rounded-lg text-center hover-lift fade-in-up delay-1">
-<div class="mx-auto bg-surface-container-high w-16 h-16 rounded-full flex items-center justify-center mb-2 group-hover:bg-secondary transition-colors">
-<span class="material-symbols-outlined text-3xl text-secondary group-hover:text-on-secondary">diamond</span>
+<!-- The Executive -->
+<div class="bg-surface border border-outline-variant flex flex-col hover:border-secondary transition-all group rounded-lg overflow-hidden hover-lift fade-in-up delay-1">
+<div class="w-full h-44 overflow-hidden relative">
+<img src="assets/images/svc_haircut.png" alt="The Executive Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 </div>
+<div class="p-stack_md flex flex-col gap-stack_sm flex-grow text-center">
 <h3 class="font-headline-sm text-headline-sm text-on-surface">The Executive</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Classic haircut, beard trim, and a relaxing scalp massage. The standard for professionals.</p>
 <span class="font-headline-md text-headline-md text-secondary mt-auto mb-4">₹599</span>
 <button class="w-full bg-secondary text-on-secondary font-button text-button uppercase py-3 rounded hover:bg-secondary-fixed transition-colors">Book Package</button>
 </div>
-<div class="bg-surface border-2 border-secondary p-stack_md flex flex-col gap-stack_sm hover:border-secondary transition-all group rounded-lg text-center relative transform md:-translate-y-4 shadow-lg shadow-secondary/10 hover-lift fade-in-up delay-2">
-<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-on-secondary font-label-bold text-label-bold uppercase px-4 py-1 rounded-full">Most Popular</div>
-<div class="mx-auto bg-secondary/20 w-16 h-16 rounded-full flex items-center justify-center mb-2">
-<span class="material-symbols-outlined text-3xl text-secondary">workspace_premium</span>
 </div>
+<!-- The Monarch (Most Popular) -->
+<div class="bg-surface border-2 border-secondary flex flex-col hover:border-secondary transition-all group rounded-lg relative overflow-hidden transform md:-translate-y-4 shadow-lg shadow-secondary/10 hover-lift fade-in-up delay-2">
+<div class="absolute top-3 left-1/2 -translate-x-1/2 z-10 bg-secondary text-on-secondary font-label-bold text-label-bold uppercase px-4 py-1 rounded-full whitespace-nowrap">Most Popular</div>
+<div class="w-full h-44 overflow-hidden relative">
+<img src="assets/images/svc_hot_towel.png" alt="The Monarch Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="p-stack_md flex flex-col gap-stack_sm flex-grow text-center">
 <h3 class="font-headline-sm text-headline-sm text-on-surface">The Monarch</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Precision skin fade, hot towel shave, facial scrub, and premium styling.</p>
 <span class="font-headline-md text-headline-md text-secondary mt-auto mb-4">₹899</span>
 <button class="w-full bg-secondary text-on-secondary font-button text-button uppercase py-3 rounded hover:bg-secondary-fixed transition-colors">Book Package</button>
 </div>
-<div class="bg-surface border border-outline-variant p-stack_md flex flex-col gap-stack_sm hover:border-secondary transition-all group rounded-lg text-center hover-lift fade-in-up delay-3">
-<div class="mx-auto bg-surface-container-high w-16 h-16 rounded-full flex items-center justify-center mb-2 group-hover:bg-secondary transition-colors">
-<span class="material-symbols-outlined text-3xl text-secondary group-hover:text-on-secondary">celebration</span>
 </div>
+<!-- Groom's Special -->
+<div class="bg-surface border border-outline-variant flex flex-col hover:border-secondary transition-all group rounded-lg overflow-hidden hover-lift fade-in-up delay-3">
+<div class="w-full h-44 overflow-hidden relative">
+<img src="assets/images/svc_royal_package.png" alt="Groom's Special Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="p-stack_md flex flex-col gap-stack_sm flex-grow text-center">
 <h3 class="font-headline-sm text-headline-sm text-on-surface">Groom's Special</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mb-4">The ultimate preparation. Full styling, shave, facial, and a complimentary drink.</p>
 <span class="font-headline-md text-headline-md text-secondary mt-auto mb-4">₹1299</span>
 <button class="w-full bg-secondary text-on-secondary font-button text-button uppercase py-3 rounded hover:bg-secondary-fixed transition-colors">Book Package</button>
+</div>
 </div>
 </div>
 </div>
@@ -426,69 +438,77 @@ RTL
 <p class="font-body-md text-body-md text-on-surface-variant">A la carte grooming options tailored to your needs.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-<!-- Service Card 1 -->
-<div class="bg-surface border border-surface-variant p-stack_md flex flex-col gap-stack_md hover:border-secondary transition-colors duration-300 group border-t-2 border-t-secondary rounded hover-lift fade-in-up delay-1">
-<div class="flex justify-between items-start">
-<span class="material-symbols-outlined text-secondary text-3xl">content_cut</span>
-<span class="font-headline-md text-headline-md text-secondary">₹299</span>
+<!-- Service Card 1: Classic Haircut -->
+<div class="bg-surface border border-surface-variant flex flex-col hover:border-secondary transition-colors duration-300 group border-t-2 border-t-secondary rounded overflow-hidden hover-lift fade-in-up delay-1">
+<div class="w-full h-40 overflow-hidden relative">
+    <img src="assets/images/svc_haircut.png" alt="Classic Haircut" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <span class="absolute bottom-2 right-2 bg-secondary text-on-secondary text-xs font-bold px-2 py-0.5 rounded">₹299</span>
 </div>
+<div class="p-stack_md flex flex-col gap-stack_md flex-grow">
 <div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Classic Haircut</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Traditional precision cut tailored to your style with a sharp finish.</p>
 </div>
 <div class="flex items-center gap-2 font-label-bold text-label-bold text-on-surface-variant uppercase mt-auto">
-<span class="material-symbols-outlined text-sm">schedule</span>
-                        30 MIN
-                    </div>
+<span class="material-symbols-outlined text-sm">schedule</span> 30 MIN
+</div>
 <button class="w-full bg-transparent border border-on-surface text-on-surface hover:bg-secondary hover:border-secondary hover:text-on-secondary font-button text-button uppercase py-3 transition-all rounded">Book This Service</button>
 </div>
-<!-- Service Card 2 -->
-<div class="bg-surface border border-surface-variant p-stack_md flex flex-col gap-stack_md hover:border-secondary transition-colors duration-300 group rounded hover-lift fade-in-up delay-2">
-<div class="flex justify-between items-start">
-<span class="material-symbols-outlined text-secondary text-3xl">face</span>
-<span class="font-headline-md text-headline-md text-secondary">₹199</span>
 </div>
+<!-- Service Card 2: Beard Trim -->
+<div class="bg-surface border border-surface-variant flex flex-col hover:border-secondary transition-colors duration-300 group rounded overflow-hidden hover-lift fade-in-up delay-2">
+<div class="w-full h-40 overflow-hidden relative">
+    <img src="assets/images/svc_beard_trim.png" alt="Beard Trim" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <span class="absolute bottom-2 right-2 bg-secondary text-on-secondary text-xs font-bold px-2 py-0.5 rounded">₹199</span>
+</div>
+<div class="p-stack_md flex flex-col gap-stack_md flex-grow">
 <div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Beard Trim</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Expert sculpting and lining to keep your facial hair looking sharp.</p>
 </div>
 <div class="flex items-center gap-2 font-label-bold text-label-bold text-on-surface-variant uppercase mt-auto">
-<span class="material-symbols-outlined text-sm">schedule</span>
-                        20 MIN
-                    </div>
+<span class="material-symbols-outlined text-sm">schedule</span> 20 MIN
+</div>
 <button class="w-full bg-transparent border border-on-surface text-on-surface hover:bg-secondary hover:border-secondary hover:text-on-secondary font-button text-button uppercase py-3 transition-all rounded">Book This Service</button>
 </div>
-<!-- Service Card 3 -->
-<div class="bg-surface border border-surface-variant p-stack_md flex flex-col gap-stack_md hover:border-secondary transition-colors duration-300 group rounded hover-lift fade-in-up delay-3">
-<div class="flex justify-between items-start">
-<span class="material-symbols-outlined text-secondary text-3xl">local_fire_department</span>
-<span class="font-headline-md text-headline-md text-secondary">₹349</span>
 </div>
+<!-- Service Card 3: Hot Towel Shave -->
+<div class="bg-surface border border-surface-variant flex flex-col hover:border-secondary transition-colors duration-300 group rounded overflow-hidden hover-lift fade-in-up delay-3">
+<div class="w-full h-40 overflow-hidden relative">
+    <img src="assets/images/svc_hot_towel.png" alt="Hot Towel Shave" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <span class="absolute bottom-2 right-2 bg-secondary text-on-secondary text-xs font-bold px-2 py-0.5 rounded">₹349</span>
+</div>
+<div class="p-stack_md flex flex-col gap-stack_md flex-grow">
 <div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Hot Towel Shave</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">The ultimate traditional wet shave with soothing hot towel treatment.</p>
 </div>
 <div class="flex items-center gap-2 font-label-bold text-label-bold text-on-surface-variant uppercase mt-auto">
-<span class="material-symbols-outlined text-sm">schedule</span>
-                        45 MIN
-                    </div>
+<span class="material-symbols-outlined text-sm">schedule</span> 45 MIN
+</div>
 <button class="w-full bg-transparent border border-on-surface text-on-surface hover:bg-secondary hover:border-secondary hover:text-on-secondary font-button text-button uppercase py-3 transition-all rounded">Book This Service</button>
 </div>
-<!-- Service Card 4 -->
-<div class="bg-surface border border-surface-variant p-stack_md flex flex-col gap-stack_md hover:border-secondary transition-colors duration-300 group rounded hover-lift fade-in-up delay-4">
-<div class="flex justify-between items-start">
-<span class="material-symbols-outlined text-secondary text-3xl">auto_awesome</span>
-<span class="font-headline-md text-headline-md text-secondary">₹499</span>
 </div>
+<!-- Service Card 4: The Royal Package -->
+<div class="bg-surface border border-surface-variant flex flex-col hover:border-secondary transition-colors duration-300 group rounded overflow-hidden hover-lift fade-in-up delay-4">
+<div class="w-full h-40 overflow-hidden relative">
+    <img src="assets/images/svc_royal_package.png" alt="The Royal Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <span class="absolute bottom-2 right-2 bg-secondary text-on-secondary text-xs font-bold px-2 py-0.5 rounded">₹499</span>
+</div>
+<div class="p-stack_md flex flex-col gap-stack_md flex-grow">
 <div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">The Royal Package</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">Haircut, beard trim, and mini facial for the complete grooming experience.</p>
 </div>
 <div class="flex items-center gap-2 font-label-bold text-label-bold text-on-surface-variant uppercase mt-auto">
-<span class="material-symbols-outlined text-sm">schedule</span>
-                        60 MIN
-                    </div>
+<span class="material-symbols-outlined text-sm">schedule</span> 60 MIN
+</div>
 <button class="w-full bg-transparent border border-on-surface text-on-surface hover:bg-secondary hover:border-secondary hover:text-on-secondary font-button text-button uppercase py-3 transition-all rounded">Book This Service</button>
+</div>
 </div>
 </div>
 </section>
@@ -500,29 +520,41 @@ RTL
 <p class="font-body-md text-body-md text-on-surface-variant">Enhance your visit with our specialized treatments.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<div class="bg-surface p-stack_md rounded border border-outline-variant flex items-start gap-4">
-<span class="material-symbols-outlined text-secondary text-3xl">spa</span>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Scalp Massage</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">15-minute invigorating scalp treatment with essential oils.</p>
-<span class="font-headline-sm text-headline-sm text-secondary">₹149</span>
+<!-- Scalp Massage -->
+<div class="bg-surface rounded border border-outline-variant overflow-hidden hover:border-secondary transition-colors group hover-lift">
+    <div class="w-full h-44 overflow-hidden relative">
+        <img src="assets/images/svc_scalp_massage.png" alt="Scalp Massage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    </div>
+    <div class="p-stack_md flex flex-col gap-1">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Scalp Massage</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">15-minute invigorating scalp treatment with essential oils.</p>
+        <span class="font-headline-sm text-headline-sm text-secondary mt-2">₹149</span>
+    </div>
 </div>
+<!-- Black Mask Facial -->
+<div class="bg-surface rounded border border-outline-variant overflow-hidden hover:border-secondary transition-colors group hover-lift">
+    <div class="w-full h-44 overflow-hidden relative">
+        <img src="assets/images/svc_black_mask.png" alt="Black Mask Facial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    </div>
+    <div class="p-stack_md flex flex-col gap-1">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Black Mask Facial</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Deep cleansing peel-off mask to remove impurities.</p>
+        <span class="font-headline-sm text-headline-sm text-secondary mt-2">₹199</span>
+    </div>
 </div>
-<div class="bg-surface p-stack_md rounded border border-outline-variant flex items-start gap-4">
-<span class="material-symbols-outlined text-secondary text-3xl">face_retouching_natural</span>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Black Mask Facial</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Deep cleansing peel-off mask to remove impurities.</p>
-<span class="font-headline-sm text-headline-sm text-secondary">₹199</span>
-</div>
-</div>
-<div class="bg-surface p-stack_md rounded border border-outline-variant flex items-start gap-4">
-<span class="material-symbols-outlined text-secondary text-3xl">brush</span>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Beard Coloring</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Natural gray coverage for a youthful, fuller beard look.</p>
-<span class="font-headline-sm text-headline-sm text-secondary">₹249</span>
-</div>
+<!-- Beard Coloring -->
+<div class="bg-surface rounded border border-outline-variant overflow-hidden hover:border-secondary transition-colors group hover-lift">
+    <div class="w-full h-44 overflow-hidden relative">
+        <img src="assets/images/svc_beard_color.png" alt="Beard Coloring" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    </div>
+    <div class="p-stack_md flex flex-col gap-1">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Beard Coloring</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Natural gray coverage for a youthful, fuller beard look.</p>
+        <span class="font-headline-sm text-headline-sm text-secondary mt-2">₹249</span>
+    </div>
 </div>
 </div>
 </div>
@@ -579,8 +611,8 @@ RTL
 <!-- Gift Cards Section -->
 <section class="bg-surface py-section_padding w-full border-t border-outline-variant/30">
 <div class="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter flex flex-col md:flex-row items-center gap-stack_lg">
-<div class="w-full md:w-1/2 rounded-lg bg-surface-container-high p-8 flex items-center justify-center border border-outline-variant">
-<span class="material-symbols-outlined text-9xl text-secondary opacity-50">card_giftcard</span>
+<div class="w-full md:w-1/2 rounded-lg overflow-hidden border border-outline-variant h-56 md:h-64">
+<img src="assets/images/svc_gift_card.png" alt="BladeKing Gift Cards" class="w-full h-full object-cover"/>
 </div>
 <div class="w-full md:w-1/2 flex flex-col gap-4">
 <h2 class="font-headline-md text-headline-md text-on-surface">Give the Gift of Grooming</h2>
@@ -643,7 +675,7 @@ RTL
 </div>
 </div>
 <div class="max-w-[1200px] mx-auto px-gutter text-center border-t border-outline-variant/30 pt-stack_md">
-<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 BladeKing Barbershop. All Rights Reserved.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 BladeKing Barbershop. All Rights Reserved.</p>
 </div>
 </footer>
 <!-- Back to Top Button -->
