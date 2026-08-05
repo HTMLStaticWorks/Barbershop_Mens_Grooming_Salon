@@ -309,9 +309,6 @@
 <a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300" href="blog.html">Blog</a>
 </li>
 <li>
-<a class="font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 scale-95 transition-transform" href="booking.html">Booking</a>
-</li>
-<li>
 <a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300" href="contact.html">Contact</a>
 </li>
 </ul>
@@ -388,9 +385,6 @@ RTL
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="blog.html">
 <span class="material-symbols-outlined">article</span> Blog
 </a>
-<a class="flex items-center gap-4 p-3 rounded-lg text-secondary bg-secondary-container/10 border-r-4 border-secondary font-body-md text-body-md transition-colors translate-x-1" href="booking.html">
-<span class="material-symbols-outlined">calendar_month</span> Booking
-</a>
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="contact.html">
 <span class="material-symbols-outlined">contact_support</span> Contact
 </a>
@@ -409,10 +403,6 @@ RTL
 <a class="flex flex-col items-center text-on-surface-variant hover:text-secondary" href="services.html">
 <span class="material-symbols-outlined" data-icon="content_cut">content_cut</span>
 <span class="text-label-bold mt-1">Services</span>
-</a>
-<a class="flex flex-col items-center text-secondary" href="booking.html">
-<span class="material-symbols-outlined" data-icon="calendar_month" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
-<span class="text-label-bold mt-1">Book</span>
 </a>
 </nav>
 <main class="pb-[72px] md:pb-0 pt-[72px]">
@@ -512,9 +502,9 @@ RTL
 <input class="peer sr-only" name="time" type="radio" value="13:00"/>
 <div class="py-2 text-center border border-outline-variant rounded font-body-sm text-on-surface-variant peer-checked:bg-secondary peer-checked:text-on-secondary peer-checked:border-secondary hover:border-secondary transition-all">01:00 PM</div>
 </label>
-<label class="cursor-pointer opacity-50 cursor-not-allowed" title="Booked">
+<label class="cursor-not-allowed opacity-60" title="Booked">
 <input class="peer sr-only" disabled="" name="time" type="radio" value="14:00"/>
-<div class="py-2 text-center border border-outline-variant/30 rounded font-body-sm text-outline-variant bg-surface-container-highest">02:00 PM</div>
+<div class="py-2 text-center border border-outline-variant/40 rounded font-body-sm text-on-surface-variant bg-surface-container line-through relative">02:00 PM<span class="block text-[9px] uppercase tracking-wider text-on-surface-variant/70 no-underline" style="text-decoration:none;">Booked</span></div>
 </label>
 </div>
 <span class="error-msg text-error text-xs hidden mt-2" id="time-error">Please select a time slot.</span>
@@ -558,8 +548,9 @@ RTL
 </div>
 </section>
 <!-- Barber Availability Snapshot -->
-<section class="max-w-container_max_width mx-auto px-gutter">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-stack_md text-center">Today's Featured Barbers</h2>
+<section class="max-w-container_max_width mx-auto px-gutter py-section_padding">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-stack_lg text-center">Today's Featured Barbers</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <div class="bg-surface-container-low border border-outline-variant rounded p-stack_md text-center">
 <div class="w-24 h-24 mx-auto rounded-full bg-surface-container-high mb-4 border-2 border-secondary flex items-center justify-center overflow-hidden">
 <span class="material-symbols-outlined text-4xl text-on-surface-variant">person</span>
@@ -610,7 +601,7 @@ RTL
 </div>
 </section>
 <!-- Policies Section -->
-<section class="max-w-container_max_width mx-auto px-gutter">
+<section class="max-w-container_max_width mx-auto px-gutter py-section_padding">
 <h2 class="font-headline-md text-headline-md text-on-surface mb-stack_md text-center fade-in-up">Our Policies</h2>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter bg-surface-container-low border border-outline-variant rounded p-stack_lg zoom-in">
 <div>
@@ -628,7 +619,7 @@ RTL
 </div>
 </section>
 <!-- Location & Map -->
-<section class="max-w-container_max_width mx-auto px-gutter">
+<section class="max-w-container_max_width mx-auto px-gutter py-section_padding">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter bg-surface border border-outline-variant rounded overflow-hidden">
 <div class="p-stack_lg flex flex-col justify-center">
 <h2 class="font-headline-md text-headline-md text-on-surface mb-stack_sm">Find Us</h2>
@@ -683,7 +674,6 @@ RTL
 <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="services.html">Services</a></li>
 <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="gallery.html">Gallery</a></li>
 <li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="blog.html">Blog</a></li>
-<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="booking.html">Booking</a></li>
 </ul>
 </div>
 <div>
@@ -701,11 +691,10 @@ RTL
 <li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
 <li><a class="hover:text-secondary transition-colors" href="#">Cookie Policy</a></li>
 </ul>
-<a href="booking.html" class="inline-block font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-5 py-2.5 rounded hover:bg-secondary-fixed transition-colors text-center">Book Now</a>
 </div>
 </div>
 <div class="max-w-[1200px] mx-auto px-gutter text-center border-t border-outline-variant/30 pt-stack_md">
-<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 BladeKing Barbershop. All Rights Reserved.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 BladeKing Barbershop. All Rights Reserved.</p>
 </div>
 </footer>
 <!-- Back to Top Button -->

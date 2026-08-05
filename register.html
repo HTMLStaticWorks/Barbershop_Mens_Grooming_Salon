@@ -10,7 +10,7 @@
         document.documentElement.classList.add('dark');
     }
 </script>
-<title>Login | BladeKing Barbershop</title>
+<title>Create Account | BladeKing Barbershop</title>
 <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
 <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg"/>
 <!-- Material Symbols -->
@@ -296,49 +296,54 @@
 <div class="w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-stack_lg lg:gap-gutter items-start">
 <!-- Left Column: Auth Card -->
 <div class="w-full max-w-md mx-auto lg:ml-auto lg:mr-0 fade-in-left">
-<!-- Login View -->
-<div class="glass-card p-section_padding rounded-lg shadow-[-4px_0px_10px_0px_rgba(0,0,0,0.3)] transition-all duration-300 zoom-in hover-lift" id="login-view">
+<!-- Register View -->
+<div class="glass-card p-section_padding rounded-lg shadow-[-4px_0px_10px_0px_rgba(0,0,0,0.3)] transition-all duration-300" id="register-view">
 <div class="text-center mb-stack_lg">
 <a href="index.html" class="inline-flex items-center justify-center gap-2 mb-stack_sm hover:opacity-80 transition-opacity">
 <img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-10 h-10 rounded-full border border-secondary/40 object-cover shadow-sm"/>
 <span class="font-headline-md text-headline-md text-on-surface">BladeKing</span>
 </a>
-<h2 class="font-headline-md text-headline-md text-on-surface">Welcome Back</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Sign in to book your next appointment.</p>
+<h2 class="font-headline-md text-headline-md text-on-surface">Join the Club</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Create an account to manage your grooming.</p>
 </div>
-<form class="space-y-stack_md" id="login-form" onsubmit="handleLogin(event)">
+<form class="space-y-stack_md" id="register-form" onsubmit="handleRegister(event)">
 <div>
-<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="login-email">EMAIL ADDRESS</label>
-<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="login-email" required="" type="email"/>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-name">FULL NAME</label>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-name" required="" type="text"/>
 </div>
 <div>
-<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="login-password">PASSWORD</label>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-email">EMAIL ADDRESS</label>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-email" required="" type="email"/>
+</div>
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-phone">PHONE NUMBER</label>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-phone" required="" type="tel"/>
+</div>
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-password">PASSWORD</label>
 <div class="relative">
-<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="login-password" required="" type="password"/>
-<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-secondary transition-colors" onclick="togglePassword('login-password', 'login-pwd-icon')" type="button">
-<span class="material-symbols-outlined" id="login-pwd-icon">visibility</span>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-password" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-secondary transition-colors" onclick="togglePassword('reg-password', 'reg-pwd-icon')" type="button">
+<span class="material-symbols-outlined" id="reg-pwd-icon">visibility</span>
 </button>
 </div>
 </div>
-<div class="flex justify-between items-center py-2 gap-2">
-<label class="flex items-center gap-2 cursor-pointer group whitespace-nowrap">
-<input class="form-checkbox bg-surface-container-high border-outline text-secondary focus:ring-secondary focus:ring-offset-background rounded-DEFAULT flex-shrink-0" type="checkbox"/>
-<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Remember me</span>
-</label>
-<a class="font-body-sm text-body-sm text-secondary hover:text-secondary-fixed transition-colors whitespace-nowrap" href="#">Forgot password?</a>
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-confirm">CONFIRM PASSWORD</label>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-confirm" required="" type="password"/>
+<p class="text-error font-body-sm text-body-sm mt-2 hidden" id="pwd-error">Passwords do not match.</p>
 </div>
-<button class="w-full bg-secondary text-on-secondary font-button text-button uppercase tracking-wider py-4 rounded-DEFAULT hover:bg-secondary-fixed transition-colors mt-stack_md" type="submit">
-                        Login
+<button class="w-full bg-secondary text-on-secondary font-button text-button uppercase tracking-wider py-4 rounded-DEFAULT hover:bg-secondary-fixed transition-colors mt-stack_lg" type="submit">
+                        Create Account
                     </button>
 <div class="text-center mt-stack_lg">
 <p class="font-body-sm text-body-sm text-on-surface-variant">
-                            New to BladeKing? 
-                            <a class="text-secondary hover:underline decoration-secondary transition-all" href="register.html">Create an account</a>
+                            Already have an account? 
+                            <a class="text-secondary hover:underline decoration-secondary transition-all" href="login.html">Login here</a>
 </p>
 </div>
 </form>
 </div>
-
 </div>
 <!-- Right Column: Info & Perks -->
 <div class="w-full max-w-md mx-auto lg:mr-auto lg:ml-0 space-y-stack_lg">
@@ -407,8 +412,6 @@
 <span class="material-symbols-outlined text-2xl">arrow_upward</span>
 </button>
 <script>
-
-
         function togglePassword(inputId, iconId) {
             const input = document.getElementById(inputId);
             const icon = document.getElementById(iconId);
