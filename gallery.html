@@ -205,24 +205,31 @@
             display: flex !important;
         }
 
-        /* Masonry Grid CSS Fallback */
+        /* Masonry Grid - CSS Grid auto-rows approach */
         .masonry-grid {
-            column-count: 1;
-            column-gap: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-auto-rows: 10px;
+            gap: 12px;
         }
         @media (min-width: 640px) {
             .masonry-grid {
-                column-count: 2;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         @media (min-width: 1024px) {
             .masonry-grid {
-                column-count: 3;
+                grid-template-columns: repeat(3, 1fr);
             }
         }
         .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        .masonry-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Premium Animation System */
@@ -454,79 +461,63 @@ RTL
 <button class="filter-btn font-button text-button uppercase bg-transparent text-on-surface px-6 py-2 rounded-sm border border-outline hover:border-secondary hover:text-secondary transition-colors" data-filter="kids">Kids</button>
 </div>
 <div class="masonry-grid" id="gallery-grid">
-<!-- Images will be rendered here. Adding data-category for filtering -->
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-1 hover-lift" data-category="haircuts" onclick="openLightbox(this)">
-<img class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Fade haircut" src="https://i.pinimg.com/736x/ca/ec/a4/caeca40d0617139b108f9c1a01373bf8.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+
+<!-- Row 1 -->
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in delay-1 hover-lift" data-category="haircuts" onclick="openLightbox(this)" style="grid-row: span 28;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Fade haircut" src="https://i.pinimg.com/736x/ca/ec/a4/caeca40d0617139b108f9c1a01373bf8.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in delay-2 hover-lift" data-category="beards" onclick="openLightbox(this)" style="grid-row: span 40;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Beard trim" src="https://i.pinimg.com/736x/14/f3/4e/14f34eefdc9d6b4c790eebbe260082f4.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-2 hover-lift" data-category="beards" onclick="openLightbox(this)">
-<img class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Beard trim" src="https://i.pinimg.com/736x/14/f3/4e/14f34eefdc9d6b4c790eebbe260082f4.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in delay-3 hover-lift" data-category="haircuts" onclick="openLightbox(this)" style="grid-row: span 30;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Barber tools" src="https://i.pinimg.com/736x/06/e0/46/06e046c87f5955e9fce8d5016d1a7dfc.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
+
+<!-- Row 2 -->
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in delay-4 hover-lift" data-category="colors" onclick="openLightbox(this)" style="grid-row: span 45;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Barber cutting hair" src="https://i.pinimg.com/736x/a5/e6/8c/a5e68c84c0f15ffd864cb981c4857352.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-3 hover-lift" data-category="haircuts" onclick="openLightbox(this)">
-<img class="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Barber tools" src="https://i.pinimg.com/736x/06/e0/46/06e046c87f5955e9fce8d5016d1a7dfc.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in delay-5 hover-lift" data-category="beards" onclick="openLightbox(this)" style="grid-row: span 25;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Straight razor shave" src="https://i.pinimg.com/736x/86/4d/e3/864de3903c403c6a2ff5e8b16cbf9d5b.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in delay-2 hover-lift" data-category="haircuts" onclick="openLightbox(this)" style="grid-row: span 35;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Pompadour haircut" src="https://i.pinimg.com/736x/3f/31/be/3f31beb8cbdfe1f5dcb95bd6804d7f94.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-4 hover-lift" data-category="colors" onclick="openLightbox(this)">
-<img class="w-full h-[450px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Barber cutting hair" src="https://i.pinimg.com/736x/a5/e6/8c/a5e68c84c0f15ffd864cb981c4857352.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+
+<!-- Row 3 -->
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in hover-lift" data-category="kids" onclick="openLightbox(this)" style="grid-row: span 40;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Modern haircut" src="https://i.pinimg.com/736x/90/08/ba/9008badfbc71ce74a26120e3172e5a1f.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in hover-lift" data-category="haircuts" onclick="openLightbox(this)" style="grid-row: span 28;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Barber haircut" src="https://i.pinimg.com/736x/3f/d2/63/3fd26343000aa82ad477ad46bc7c44f7.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-5 hover-lift" data-category="beards" onclick="openLightbox(this)">
-<img class="w-full h-[250px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Straight razor shave" src="https://i.pinimg.com/736x/86/4d/e3/864de3903c403c6a2ff5e8b16cbf9d5b.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in hover-lift" data-category="beards" onclick="openLightbox(this)" style="grid-row: span 42;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Beard trimming" src="https://i.pinimg.com/736x/62/0c/6c/620c6c54de4573045820229d0167c306.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
+
+<!-- Row 4 - fills all 3 columns evenly -->
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in hover-lift" data-category="haircuts" onclick="openLightbox(this)" style="grid-row: span 32;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Precision haircut" src="https://i.pinimg.com/736x/32/87/32/3287328bf5e036d78a891d2434589d96.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-2 hover-lift" data-category="haircuts" onclick="openLightbox(this)">
-<img class="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Pompadour haircut" src="https://i.pinimg.com/736x/3f/31/be/3f31beb8cbdfe1f5dcb95bd6804d7f94.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in hover-lift" data-category="colors" onclick="openLightbox(this)" style="grid-row: span 38;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Pompadour hair style" src="https://i.pinimg.com/1200x/6c/84/66/6c84669a30513580b60bca15f7e77064.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
+<div class="masonry-item relative group cursor-pointer rounded-sm zoom-in hover-lift" data-category="haircuts" onclick="openLightbox(this)" style="grid-row: span 26;">
+<img class="transition-transform duration-500 group-hover:scale-105" data-alt="Modern side part" src="https://i.pinimg.com/1200x/77/69/4a/77694aef6beda7c9d8f1e6e8a8760a00.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span></div>
 </div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="kids" onclick="openLightbox(this)">
-<img class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern haircut" src="https://i.pinimg.com/736x/90/08/ba/9008badfbc71ce74a26120e3172e5a1f.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
-</div>
-</div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="haircuts" onclick="openLightbox(this)">
-<img class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Barber haircut" src="https://i.pinimg.com/736x/3f/d2/63/3fd26343000aa82ad477ad46bc7c44f7.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
-</div>
-</div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="beards" onclick="openLightbox(this)">
-<img class="w-full h-[420px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Beard trimming" src="https://i.pinimg.com/736x/62/0c/6c/620c6c54de4573045820229d0167c306.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
-</div>
-</div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="haircuts" onclick="openLightbox(this)">
-<img class="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Precision haircut" src="https://i.pinimg.com/736x/32/87/32/3287328bf5e036d78a891d2434589d96.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
-</div>
-</div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="colors" onclick="openLightbox(this)">
-<img class="w-full h-[380px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Pompadour hair style" src="https://i.pinimg.com/1200x/6c/84/66/6c84669a30513580b60bca15f7e77064.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
-</div>
-</div>
-<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="haircuts" onclick="openLightbox(this)">
-<img class="w-full h-[260px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern side part" src="https://i.pinimg.com/1200x/77/69/4a/77694aef6beda7c9d8f1e6e8a8760a00.jpg"/>
-<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
-</div>
-</div>
+
 </div>
 </section>
 <!-- 4. Video Tour -->
@@ -659,7 +650,7 @@ RTL
 </div>
 </div>
 <div class="max-w-[1200px] mx-auto px-gutter text-center border-t border-outline-variant/30 pt-stack_md">
-<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 BladeKing Barbershop. All Rights Reserved.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 BladeKing Barbershop. All Rights Reserved.</p>
 </div>
 </footer>
 <!-- Back to Top Button -->
