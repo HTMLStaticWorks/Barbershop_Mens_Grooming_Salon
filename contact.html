@@ -282,6 +282,7 @@
 <a class="font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 scale-95 transition-transform" href="contact.html">Contact</a>
 </nav>
 <div class="flex items-center gap-4">
+<button aria-label="Toggle Direction" class="font-button text-xs font-bold px-2.5 py-1 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" id="rtl-toggle" title="Toggle RTL/LTR">RTL</button>
 <button aria-label="Toggle Theme" class="text-on-surface hover:text-secondary transition-colors duration-300" id="theme-toggle">
 <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
 </button>
@@ -304,6 +305,7 @@
 <span>BladeKing</span>
 </a>
 <div class="flex items-center gap-3">
+<button aria-label="Toggle Direction" class="font-button text-xs font-bold px-2.5 py-1 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" title="Toggle RTL/LTR">RTL</button>
 <button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn">
 <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
 </button>
@@ -734,6 +736,30 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
+
+        // RTL / LTR Direction Toggle
+        const rtlToggleBtns = document.querySelectorAll('#rtl-toggle, .rtl-toggle-btn');
+        function updateRTLUI() {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            rtlToggleBtns.forEach(btn => {
+                btn.textContent = isRTL ? 'LTR' : 'RTL';
+                btn.setAttribute('title', isRTL ? 'Switch to LTR' : 'Switch to RTL');
+            });
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+            document.documentElement.setAttribute('dir', 'rtl');
+        } else {
+            document.documentElement.setAttribute('dir', 'ltr');
+        }
+        updateRTLUI();
+        rtlToggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+                document.documentElement.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
+                localStorage.setItem('dir', isRTL ? 'ltr' : 'rtl');
+                updateRTLUI();
+            });
+        });
     </script>
 </body>
 </html>

@@ -289,6 +289,7 @@
 <span>BladeKing</span>
 </a>
 <div class="flex items-center gap-3 md:gap-stack_md">
+<button aria-label="Toggle Direction" class="font-button text-xs font-bold px-2.5 py-1 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" id="rtl-toggle" title="Toggle RTL/LTR">RTL</button>
 <button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary transition-colors" id="theme-toggle">
 <span class="material-symbols-outlined">dark_mode</span>
 </button>
@@ -649,6 +650,30 @@
 
         document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .zoom-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // RTL / LTR Direction Toggle
+        const rtlToggleBtns = document.querySelectorAll('#rtl-toggle, .rtl-toggle-btn');
+        function updateRTLUI() {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            rtlToggleBtns.forEach(btn => {
+                btn.textContent = isRTL ? 'LTR' : 'RTL';
+                btn.setAttribute('title', isRTL ? 'Switch to LTR' : 'Switch to RTL');
+            });
+        }
+        if (localStorage.getItem('dir') === 'rtl') {
+            document.documentElement.setAttribute('dir', 'rtl');
+        } else {
+            document.documentElement.setAttribute('dir', 'ltr');
+        }
+        updateRTLUI();
+        rtlToggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+                document.documentElement.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
+                localStorage.setItem('dir', isRTL ? 'ltr' : 'rtl');
+                updateRTLUI();
+            });
         });
     </script>
 </body>
