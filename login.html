@@ -294,7 +294,7 @@
 <span class="material-symbols-outlined">dark_mode</span>
 </button>
 <button class="font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 text-sm md:text-base" id="nav-login-btn" onclick="toggleView('login')">Login</button>
-<button class="font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors pb-1 text-sm md:text-base" id="nav-register-btn" onclick="toggleView('register')">Sign Up</button>
+<button class="font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors border-b-2 border-transparent pb-1 text-sm md:text-base" id="nav-register-btn" onclick="toggleView('register')">Sign Up</button>
 </div>
 </div>
 </header>
@@ -512,7 +512,7 @@
                 document.title = 'Create Account | BladeKing Barbershop';
                 
                 if(navLoginBtn && navRegisterBtn) {
-                    navLoginBtn.className = 'font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors pb-1 text-sm md:text-base';
+                    navLoginBtn.className = 'font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors border-b-2 border-transparent pb-1 text-sm md:text-base';
                     navRegisterBtn.className = 'font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 text-sm md:text-base';
                 }
             } else {
@@ -521,7 +521,7 @@
                 document.title = 'Login | BladeKing Barbershop';
                 
                 if(navLoginBtn && navRegisterBtn) {
-                    navRegisterBtn.className = 'font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors pb-1 text-sm md:text-base';
+                    navRegisterBtn.className = 'font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors border-b-2 border-transparent pb-1 text-sm md:text-base';
                     navLoginBtn.className = 'font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 text-sm md:text-base';
                 }
             }
