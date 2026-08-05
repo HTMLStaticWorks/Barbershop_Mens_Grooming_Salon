@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>
+    if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.classList.remove('dark');
+    } else {
+        document.documentElement.classList.add('dark');
+    }
+</script>
+<title>Login | BladeKing Barbershop</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter & Playfair Display -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    screens: {
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1025px',
+                        'xl': '1280px',
+                        '2xl': '1536px'
+                    },
+                    colors: {
+                        "background": "var(--bg-background)",
+                        "on-background": "var(--bg-on-background)",
+                        "surface": "var(--bg-surface)",
+                        "on-surface": "var(--bg-on-surface)",
+                        "surface-variant": "var(--bg-surface-variant)",
+                        "on-surface-variant": "var(--bg-on-surface-variant)",
+                        "surface-container": "var(--bg-surface-container)",
+                        "surface-container-low": "var(--bg-surface-container-low)",
+                        "surface-container-lowest": "var(--bg-surface-container-lowest)",
+                        "surface-container-high": "var(--bg-surface-container-high)",
+                        "surface-container-highest": "var(--bg-surface-container-highest)",
+                        "primary-container": "var(--bg-primary-container)",
+                        "surface-dim": "var(--bg-surface-dim)",
+                        "surface-bright": "var(--bg-surface-bright)",
+                        "outline": "var(--bg-outline)",
+                        "outline-variant": "var(--bg-outline-variant)",
+                        "inverse-surface": "var(--bg-inverse-surface)",
+                        "inverse-on-surface": "var(--bg-inverse-on-surface)",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-tint": "#c8c6c5",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary": "#3d2e00",
+                        "on-primary": "#313030",
+                        "on-tertiary-container": "#da4c3b",
+                        "secondary-container": "#785d00",
+                        "secondary": "#e6c364",
+                        "secondary-fixed-dim": "#e6c364",
+                        "inverse-primary": "#5f5e5e",
+                        "on-tertiary-fixed": "#410000",
+                        "on-tertiary": "#690001",
+                        "on-primary-fixed-variant": "#474646",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#fdd977",
+                        "tertiary-container": "#2d0000",
+                        "on-secondary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#8e130c",
+                        "on-primary-container": "#7e7c7c",
+                        "tertiary": "#ffb4a9",
+                        "on-secondary-fixed-variant": "#584400",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#ffe08f",
+                        "primary": "#c8c6c5"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        header_height: "72px",
+                        gutter: "24px",
+                        stack_lg: "32px",
+                        container_max_width: "1200px",
+                        stack_sm: "8px",
+                        stack_md: "16px",
+                        margin_mobile: "16px",
+                        section_padding: "80px"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "button": ["Inter"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    fontSize: {
+                        "label-bold": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" }],
+                        "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-sm": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "800" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-md": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "button": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        :root {
+            --bg-background: #f4f4f5;
+            --bg-on-background: #18181b;
+            --bg-surface: #ffffff;
+            --bg-on-surface: #18181b;
+            --bg-surface-variant: #e4e4e7;
+            --bg-on-surface-variant: #52525b;
+            --bg-surface-container: #f4f4f5;
+            --bg-surface-container-low: #ffffff;
+            --bg-surface-container-lowest: #ffffff;
+            --bg-surface-container-high: #e4e4e7;
+            --bg-surface-container-highest: #d4d4d8;
+            --bg-primary-container: #e4e4e7;
+            --bg-surface-dim: #f4f4f5;
+            --bg-surface-bright: #ffffff;
+            --bg-outline: #a1a1aa;
+            --bg-outline-variant: #e4e4e7;
+            --bg-inverse-surface: #18181b;
+            --bg-inverse-on-surface: #f4f4f5;
+            --bg-glass-card: rgba(255, 255, 255, 0.85);
+            --bg-overlay-top: rgba(255, 255, 255, 0.8);
+            --bg-overlay-bottom: rgba(255, 255, 255, 0.95);
+            --bg-nav-backdrop: rgba(255, 255, 255, 0.90);
+        }
+
+        .dark {
+            --bg-background: #141313;
+            --bg-on-background: #e5e2e1;
+            --bg-surface: #141313;
+            --bg-on-surface: #e5e2e1;
+            --bg-surface-variant: #353434;
+            --bg-on-surface-variant: #c4c7c7;
+            --bg-surface-container: #201f1f;
+            --bg-surface-container-low: #1c1b1b;
+            --bg-surface-container-lowest: #0e0e0e;
+            --bg-surface-container-high: #2b2a2a;
+            --bg-surface-container-highest: #353434;
+            --bg-primary-container: #111111;
+            --bg-surface-dim: #141313;
+            --bg-surface-bright: #3a3939;
+            --bg-outline: #8e9192;
+            --bg-outline-variant: #444748;
+            --bg-inverse-surface: #e5e2e1;
+            --bg-inverse-on-surface: #313030;
+            --bg-glass-card: rgba(20, 19, 19, 0.7);
+            --bg-overlay-top: rgba(20, 19, 19, 0.8);
+            --bg-overlay-bottom: rgba(20, 19, 19, 0.95);
+            --bg-nav-backdrop: rgba(20, 19, 19, 0.90);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-background);
+            color: var(--bg-on-background);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .glass-nav {
+            background-color: var(--bg-nav-backdrop);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: background-color 0.3s ease;
+        }
+
+        .glass-card {
+            background: var(--bg-glass-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 2px solid #e6c364;
+            border-left: 1px solid var(--bg-outline-variant);
+            border-right: 1px solid var(--bg-outline-variant);
+            border-bottom: 1px solid var(--bg-outline-variant);
+        }
+        
+        .bg-image-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-color: var(--bg-background);
+        }
+
+        .bg-image-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, var(--bg-overlay-top), var(--bg-overlay-bottom));
+        }
+
+        /* Premium Animation System */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .zoom-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger Delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* Premium Micro-Interactions */
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px -8px rgba(230, 195, 100, 0.2);
+            border-color: #e6c364 !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-secondary selection:text-on-secondary">
+<!-- Background Image with Overlay -->
+<div class="bg-image-overlay bg-cover bg-center" data-alt="A cinematic, high-contrast photograph of an empty, luxurious vintage barbershop at night." style="background-image: url('assets/images/salon_interior.png')"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full h-[72px] z-50 glass-nav border-b border-outline-variant/30 flat no shadows">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter w-full h-full">
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface dark:text-on-surface flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+<img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-8 h-8 rounded-full border border-secondary/40 object-cover shadow-sm"/>
+<span>BladeKing</span>
+</a>
+<div class="flex items-center gap-3 md:gap-stack_md">
+<button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 text-sm md:text-base" id="nav-login-btn" onclick="toggleView('login')">Login</button>
+<button class="font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors pb-1 text-sm md:text-base" id="nav-register-btn" onclick="toggleView('register')">Sign Up</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-section_padding px-margin_mobile flex items-center justify-center">
+<div class="w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-stack_lg lg:gap-gutter items-start">
+<!-- Left Column: Auth Card -->
+<div class="w-full max-w-md mx-auto lg:ml-auto lg:mr-0 fade-in-left">
+<!-- Login View -->
+<div class="glass-card p-section_padding rounded-lg shadow-[-4px_0px_10px_0px_rgba(0,0,0,0.3)] transition-all duration-300 zoom-in hover-lift" id="login-view">
+<div class="text-center mb-stack_lg">
+<span class="material-symbols-outlined text-secondary text-4xl mb-stack_sm" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Welcome Back</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Sign in to book your next appointment.</p>
+</div>
+<form class="space-y-stack_md" id="login-form" onsubmit="handleLogin(event)">
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="login-email">EMAIL ADDRESS</label>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="login-email" required="" type="email"/>
+</div>
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="login-password">PASSWORD</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="login-password" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-secondary transition-colors" onclick="togglePassword('login-password', 'login-pwd-icon')" type="button">
+<span class="material-symbols-outlined" id="login-pwd-icon">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-center py-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="form-checkbox bg-surface-container-high border-outline text-secondary focus:ring-secondary focus:ring-offset-background rounded-DEFAULT" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Remember me</span>
+</label>
+<a class="font-body-sm text-body-sm text-secondary hover:text-secondary-fixed transition-colors" href="#">Forgot password?</a>
+</div>
+<button class="w-full bg-secondary text-on-secondary font-button text-button uppercase tracking-wider py-4 rounded-DEFAULT hover:bg-secondary-fixed transition-colors mt-stack_md" type="submit">
+                        Login
+                    </button>
+<div class="text-center mt-stack_lg">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            New to BladeKing? 
+                            <button class="text-secondary hover:underline decoration-secondary transition-all" onclick="toggleView('register')" type="button">Create an account</button>
+</p>
+</div>
+</form>
+</div>
+<!-- Register View -->
+<div class="glass-card p-section_padding rounded-lg shadow-[-4px_0px_10px_0px_rgba(0,0,0,0.3)] hidden transition-all duration-300" id="register-view">
+<div class="text-center mb-stack_lg">
+<span class="material-symbols-outlined text-secondary text-4xl mb-stack_sm" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Join the Club</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Create an account to manage your grooming.</p>
+</div>
+<form class="space-y-stack_md" id="register-form" onsubmit="handleRegister(event)">
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-name">FULL NAME</label>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-name" required="" type="text"/>
+</div>
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-email">EMAIL ADDRESS</label>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-email" required="" type="email"/>
+</div>
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-phone">PHONE NUMBER</label>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-phone" required="" type="tel"/>
+</div>
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-password">PASSWORD</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-password" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-secondary transition-colors" onclick="togglePassword('reg-password', 'reg-pwd-icon')" type="button">
+<span class="material-symbols-outlined" id="reg-pwd-icon">visibility</span>
+</button>
+</div>
+</div>
+<div>
+<label class="font-label-bold text-label-bold text-on-surface block mb-2" for="reg-confirm">CONFIRM PASSWORD</label>
+<input class="w-full bg-surface-container-high border-0 border-b border-outline text-on-surface focus:ring-0 focus:border-secondary transition-colors font-body-md text-body-md py-3 px-4 rounded-t-DEFAULT" id="reg-confirm" required="" type="password"/>
+<p class="text-error font-body-sm text-body-sm mt-2 hidden" id="pwd-error">Passwords do not match.</p>
+</div>
+<button class="w-full bg-secondary text-on-secondary font-button text-button uppercase tracking-wider py-4 rounded-DEFAULT hover:bg-secondary-fixed transition-colors mt-stack_lg" type="submit">
+                        Create Account
+                    </button>
+<div class="text-center mt-stack_lg">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Already have an account? 
+                            <button class="text-secondary hover:underline decoration-secondary transition-all" onclick="toggleView('login')" type="button">Login here</button>
+</p>
+</div>
+</form>
+</div>
+</div>
+<!-- Right Column: Info & Perks -->
+<div class="w-full max-w-md mx-auto lg:mr-auto lg:ml-0 space-y-stack_lg">
+<!-- Testimonial -->
+<div class="glass-card p-stack_md rounded-lg border-t-0 border-l-2 border-secondary">
+<p class="font-body-lg italic text-on-surface mb-4">"The best grooming experience I've ever had. Booking through the app is completely seamless."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface font-headline-sm">JD</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">James D.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Member since 2022</p>
+</div>
+</div>
+</div>
+<!-- Member Benefits -->
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-stack_md">Member Benefits</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1">event_available</span>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Easy Rebooking</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Book your favorite barber instantly with just two taps.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1">loyalty</span>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Loyalty Points</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Earn points on every visit and redeem for free products.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1">star</span>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Exclusive Offers</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Get early access to events and special grooming promotions.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Mobile App Promotion -->
+<div class="bg-surface-container-high p-stack_md rounded-lg border border-outline-variant/30">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Get the App</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Manage appointments and check rewards on the go.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-surface-container-highest text-on-surface px-4 py-2 rounded-DEFAULT flex items-center gap-2 hover:bg-surface-variant transition-colors border border-outline-variant/50 font-button text-button">
+<span class="material-symbols-outlined">apple</span> App Store
+                        </button>
+<button class="bg-surface-container-highest text-on-surface px-4 py-2 rounded-DEFAULT flex items-center gap-2 hover:bg-surface-variant transition-colors border border-outline-variant/50 font-button text-button">
+<span class="material-symbols-outlined">shop</span> Google Play
+                        </button>
+</div>
+</div>
+<!-- Safety & Privacy -->
+<div class="flex items-center gap-3 bg-surface-container-lowest/80 p-4 rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary">lock</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your data is securely encrypted. We value your privacy and never share information.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-section_padding pb-stack_lg bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant flat no shadows mt-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-gutter max-w-[1200px] mx-auto px-gutter mb-stack_lg">
+<div class="flex flex-col gap-3">
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+            BladeKing
+        </a>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Premium grooming for the modern gentleman. Experience the luxury of a perfect cut.</p>
+<div class="flex items-center gap-2 text-on-surface-variant text-body-sm mt-2">
+<span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+<span>123 Grooming Street, Chennai 600001</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Navigation</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="gallery.html">Gallery</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="booking.html">Booking</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Hours</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex justify-between max-w-[180px]"><span>Mon-Fri</span><span>9am - 8pm</span></li>
+<li class="flex justify-between max-w-[180px]"><span>Saturday</span><span>9am - 7pm</span></li>
+<li class="flex justify-between max-w-[180px]"><span>Sunday</span><span class="text-secondary font-semibold">Closed</span></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Legal & Booking</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant mb-4">
+<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+<a href="booking.html" class="inline-block font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-5 py-2.5 rounded hover:bg-secondary-fixed transition-colors text-center">Book Now</a>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto px-gutter text-center border-t border-outline-variant/30 pt-stack_md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 BladeKing Barbershop. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- Back to Top Button -->
+<button aria-label="Back to Top" id="back-to-top" class="fixed bottom-20 md:bottom-8 right-6 z-50 p-3 rounded-full bg-secondary text-on-secondary shadow-lg hover:bg-secondary-fixed opacity-0 pointer-events-none transition-all duration-300 transform hover:scale-110 focus:outline-none flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_upward</span>
+</button>
+<script>
+        function toggleView(view) {
+            const loginView = document.getElementById('login-view');
+            const registerView = document.getElementById('register-view');
+            const navLoginBtn = document.getElementById('nav-login-btn');
+            const navRegisterBtn = document.getElementById('nav-register-btn');
+            
+            if (view === 'register') {
+                loginView.classList.add('hidden');
+                registerView.classList.remove('hidden');
+                document.title = 'Create Account | BladeKing Barbershop';
+                
+                if(navLoginBtn && navRegisterBtn) {
+                    navLoginBtn.className = 'font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors pb-1 text-sm md:text-base';
+                    navRegisterBtn.className = 'font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 text-sm md:text-base';
+                }
+            } else {
+                registerView.classList.add('hidden');
+                loginView.classList.remove('hidden');
+                document.title = 'Login | BladeKing Barbershop';
+                
+                if(navLoginBtn && navRegisterBtn) {
+                    navRegisterBtn.className = 'font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors pb-1 text-sm md:text-base';
+                    navLoginBtn.className = 'font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 text-sm md:text-base';
+                }
+            }
+        }
+
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.textContent = 'visibility';
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'AUTHENTICATING...';
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                alert('Login functionality would proceed here.');
+            }, 1000);
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const pwd = document.getElementById('reg-password').value;
+            const confirmPwd = document.getElementById('reg-confirm').value;
+            const errorMsg = document.getElementById('pwd-error');
+            
+            if (pwd !== confirmPwd) {
+                errorMsg.classList.remove('hidden');
+                document.getElementById('reg-confirm').classList.add('border-error');
+                return;
+            }
+            
+            errorMsg.classList.add('hidden');
+            document.getElementById('reg-confirm').classList.remove('border-error');
+            
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'CREATING ACCOUNT...';
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.classList.remove('opacity-70', 'cursor-not-allowed');
+                alert('Registration functionality would proceed here.');
+            }, 1000);
+        }
+
+        // Theme Toggle Logic
+        const themeToggleBtns = document.querySelectorAll('#theme-toggle, .theme-toggle-btn');
+        const html = document.documentElement;
+
+        function updateThemeUI() {
+            const isDark = html.classList.contains('dark');
+            themeToggleBtns.forEach(btn => {
+                btn.innerHTML = isDark 
+                    ? '<span class="material-symbols-outlined">light_mode</span>' 
+                    : '<span class="material-symbols-outlined">dark_mode</span>';
+            });
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            html.classList.remove('dark');
+        } else {
+            html.classList.add('dark');
+        }
+        updateThemeUI();
+
+        themeToggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    html.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+                updateThemeUI();
+            });
+        });
+
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .zoom-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

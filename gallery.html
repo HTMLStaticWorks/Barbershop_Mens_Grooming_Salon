@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>
+    if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.classList.remove('dark');
+    } else {
+        document.documentElement.classList.add('dark');
+    }
+</script>
+<title>Gallery | BladeKing Barbershop</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter & Playfair Display -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    screens: {
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1025px',
+                        'xl': '1280px',
+                        '2xl': '1536px'
+                    },
+                    colors: {
+                        "background": "var(--bg-background)",
+                        "on-background": "var(--bg-on-background)",
+                        "surface": "var(--bg-surface)",
+                        "on-surface": "var(--bg-on-surface)",
+                        "surface-variant": "var(--bg-surface-variant)",
+                        "on-surface-variant": "var(--bg-on-surface-variant)",
+                        "surface-container": "var(--bg-surface-container)",
+                        "surface-container-low": "var(--bg-surface-container-low)",
+                        "surface-container-lowest": "var(--bg-surface-container-lowest)",
+                        "surface-container-high": "var(--bg-surface-container-high)",
+                        "surface-container-highest": "var(--bg-surface-container-highest)",
+                        "primary-container": "var(--bg-primary-container)",
+                        "surface-dim": "var(--bg-surface-dim)",
+                        "surface-bright": "var(--bg-surface-bright)",
+                        "outline": "var(--bg-outline)",
+                        "outline-variant": "var(--bg-outline-variant)",
+                        "inverse-surface": "var(--bg-inverse-surface)",
+                        "inverse-on-surface": "var(--bg-inverse-on-surface)",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-tint": "#c8c6c5",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary": "#3d2e00",
+                        "on-primary": "#313030",
+                        "on-tertiary-container": "#da4c3b",
+                        "secondary-container": "#785d00",
+                        "secondary": "#e6c364",
+                        "secondary-fixed-dim": "#e6c364",
+                        "inverse-primary": "#5f5e5e",
+                        "on-tertiary-fixed": "#410000",
+                        "on-tertiary": "#690001",
+                        "on-primary-fixed-variant": "#474646",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#fdd977",
+                        "tertiary-container": "#2d0000",
+                        "on-secondary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#8e130c",
+                        "on-primary-container": "#7e7c7c",
+                        "tertiary": "#ffb4a9",
+                        "on-secondary-fixed-variant": "#584400",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#ffe08f",
+                        "primary": "#c8c6c5"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        header_height: "72px",
+                        gutter: "24px",
+                        stack_lg: "32px",
+                        container_max_width: "1200px",
+                        stack_sm: "8px",
+                        stack_md: "16px",
+                        margin_mobile: "16px",
+                        section_padding: "80px"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "button": ["Inter"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    fontSize: {
+                        "label-bold": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" }],
+                        "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-sm": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "800" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-md": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "button": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        :root {
+            --bg-background: #f4f4f5;
+            --bg-on-background: #18181b;
+            --bg-surface: #ffffff;
+            --bg-on-surface: #18181b;
+            --bg-surface-variant: #e4e4e7;
+            --bg-on-surface-variant: #52525b;
+            --bg-surface-container: #f4f4f5;
+            --bg-surface-container-low: #ffffff;
+            --bg-surface-container-lowest: #ffffff;
+            --bg-surface-container-high: #e4e4e7;
+            --bg-surface-container-highest: #d4d4d8;
+            --bg-primary-container: #e4e4e7;
+            --bg-surface-dim: #f4f4f5;
+            --bg-surface-bright: #ffffff;
+            --bg-outline: #a1a1aa;
+            --bg-outline-variant: #e4e4e7;
+            --bg-inverse-surface: #18181b;
+            --bg-inverse-on-surface: #f4f4f5;
+            --bg-nav-backdrop: rgba(255, 255, 255, 0.90);
+        }
+
+        .dark {
+            --bg-background: #141313;
+            --bg-on-background: #e5e2e1;
+            --bg-surface: #141313;
+            --bg-on-surface: #e5e2e1;
+            --bg-surface-variant: #353434;
+            --bg-on-surface-variant: #c4c7c7;
+            --bg-surface-container: #201f1f;
+            --bg-surface-container-low: #1c1b1b;
+            --bg-surface-container-lowest: #0e0e0e;
+            --bg-surface-container-high: #2b2a2a;
+            --bg-surface-container-highest: #353434;
+            --bg-primary-container: #111111;
+            --bg-surface-dim: #141313;
+            --bg-surface-bright: #3a3939;
+            --bg-outline: #8e9192;
+            --bg-outline-variant: #444748;
+            --bg-inverse-surface: #e5e2e1;
+            --bg-inverse-on-surface: #313030;
+            --bg-nav-backdrop: rgba(20, 19, 19, 0.90);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-background);
+            color: var(--bg-on-background);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .glass-nav {
+            background-color: var(--bg-nav-backdrop);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: background-color 0.3s ease;
+        }
+
+        /* Before/After Slider */
+        .before-after-container {
+            position: relative;
+        }
+        .before-after-container .after-image {
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+            transition: clip-path 0.1s ease;
+        }
+        .before-after-container:hover .after-image {
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 30% 100%);
+        }
+
+        /* Lightbox */
+        .lightbox-overlay {
+            display: none !important;
+        }
+        .lightbox-overlay.active {
+            display: flex !important;
+        }
+
+        /* Masonry Grid CSS Fallback */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Premium Animation System */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .zoom-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger Delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* Premium Micro-Interactions */
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px -8px rgba(230, 195, 100, 0.2);
+            border-color: #e6c364 !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full h-[72px] z-50 glass-nav border-b border-outline-variant/30 hidden lg:block">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter w-full h-full">
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2.5">
+<img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-8 h-8 rounded-full border border-secondary/40 object-cover shadow-sm"/>
+<span>BladeKing</span>
+</a>
+<nav class="flex items-center gap-6">
+<div class="relative group">
+    <button class="flex items-center gap-1 text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider focus:outline-none">
+        <span>Home</span>
+        <span class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
+    </button>
+    <div class="absolute top-full left-0 mt-2 w-52 bg-surface-container border border-outline-variant rounded shadow-xl py-2 hidden group-hover:block transition-all z-50">
+        <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-base">storefront</span>
+            <span>Home 1 (Classic Hub)</span>
+        </a>
+        <a href="home2.html" class="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-base">spa</span>
+            <span>Home 2 (Sanctuary)</span>
+        </a>
+    </div>
+</div>
+<a class="font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors" href="services.html">Services</a>
+<a class="font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 scale-95 transition-transform" href="gallery.html">Gallery</a>
+<a class="font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors" href="blog.html">Blog</a>
+<a class="font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors" href="booking.html">Booking</a>
+<a class="font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="login.html" class="font-button text-button uppercase tracking-wider text-secondary border border-secondary px-4 py-2 hover:bg-secondary/10 transition-colors inline-block">Login</a>
+<a href="booking.html" class="font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-4 py-2 hover:bg-secondary/90 transition-colors inline-block">Book Now</a>
+<button aria-label="Toggle Theme" class="text-on-surface hover:text-secondary transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<span class="material-symbols-outlined text-on-surface hover:text-secondary transition-colors cursor-pointer" data-icon="content_cut">content_cut</span>
+</div>
+</div>
+</header>
+<!-- Mobile Top Header -->
+<div class="lg:hidden fixed top-0 left-0 w-full z-50 glass-nav border-b border-outline-variant/30 h-[72px] flex items-center justify-between px-4">
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-8 h-8 rounded-full border border-secondary/40 object-cover shadow-sm"/>
+<span>BladeKing</span>
+</a>
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button aria-label="Toggle Menu" class="p-2 text-on-surface" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+
+<!-- Mobile Nav Overlay -->
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-300 lg:hidden" id="mobile-nav-overlay"></div>
+
+<!-- Mobile Drawer -->
+<aside class="fixed inset-y-0 right-0 w-[280px] bg-surface dark:bg-surface border-l border-outline-variant shadow-[-4px_0px_10px_0px_rgba(0,0,0,0.3)] z-[60] transform translate-x-full transition-transform duration-300 flex flex-col p-stack_md lg:hidden" id="mobile-nav">
+<div class="flex justify-between items-center mb-6 border-b border-outline-variant pb-4">
+<div class="flex items-center gap-2">
+<img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-9 h-9 rounded-full border border-secondary/40 object-cover shadow-sm"/>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-secondary">BladeKing</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Premium Grooming</p>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-on-surface" id="close-mobile-nav">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+
+<!-- Home Switcher in Mobile Drawer -->
+<div class="flex items-center p-1 bg-surface-container rounded-lg mb-4 border border-outline-variant/40">
+    <a href="index.html" class="flex-1 py-1.5 text-center text-xs font-semibold text-on-surface-variant hover:text-on-surface rounded transition-colors">Home 1</a>
+    <a href="home2.html" class="flex-1 py-1.5 text-center text-xs font-semibold text-on-surface-variant hover:text-on-surface rounded transition-colors">Home 2</a>
+</div>
+
+<nav class="flex flex-col gap-2 flex-grow overflow-y-auto">
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span> Home 1 (Classic)
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="home2.html">
+<span class="material-symbols-outlined">spa</span> Home 2 (Sanctuary)
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="services.html">
+<span class="material-symbols-outlined">content_cut</span> Services
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-secondary bg-secondary-container/10 border-r-4 border-secondary font-body-md text-body-md transition-colors translate-x-1" href="gallery.html">
+<span class="material-symbols-outlined">photo_library</span> Gallery
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="blog.html">
+<span class="material-symbols-outlined">article</span> Blog
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="booking.html">
+<span class="material-symbols-outlined">calendar_month</span> Booking
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="contact.html">
+<span class="material-symbols-outlined">contact_support</span> Contact
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<a href="booking.html" class="w-full inline-block text-center font-button text-button uppercase tracking-wider px-6 py-3 bg-secondary text-on-secondary hover:bg-secondary-fixed transition-all rounded">Book Now</a>
+</div>
+</aside>
+
+<!-- SideNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface border-t border-outline-variant z-50">
+<div class="flex justify-around items-center h-16">
+<a class="flex flex-col items-center text-on-surface-variant hover:text-on-surface" href="index.html">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-on-surface" href="services.html">
+<span class="material-symbols-outlined">content_cut</span>
+</a>
+<a class="flex flex-col items-center text-secondary border-t-2 border-secondary pt-1" href="gallery.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">photo_library</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-on-surface" href="booking.html">
+<span class="material-symbols-outlined">calendar_month</span>
+</a>
+</div>
+</nav>
+<main class="flex-grow pt-[104px] lg:pt-[152px] pb-section_padding px-gutter max-w-container_max_width mx-auto w-full space-y-section_padding">
+<!-- 1. Hero Section -->
+<section class="text-center">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack_md">Our Work</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Precision cuts, flawless fades, and masterful beard trims. Explore the craftsmanship that defines BladeKing.</p>
+</section>
+<!-- 2. Featured Transformation -->
+<section class="mb-section_padding">
+<div class="text-center mb-stack_lg fade-in-up">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-stack_sm">Featured Transformation</h2>
+<p class="font-body-md text-on-surface-variant">Witness the power of a professional groom.</p>
+</div>
+<div class="relative w-full max-w-4xl mx-auto aspect-video rounded-lg overflow-hidden before-after-container cursor-ew-resize border border-outline-variant/30 zoom-in hover-lift">
+<img alt="Before transformation" class="absolute inset-0 w-full h-full object-cover" src="assets/images/barber_hero.png"/>
+<div class="absolute top-4 left-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded font-label-bold text-label-bold text-white z-10">BEFORE</div>
+<img alt="After transformation" class="after-image absolute inset-0 w-full h-full object-cover" src="assets/images/skin_fade.png"/>
+<div class="absolute top-4 right-4 bg-secondary px-4 py-2 rounded font-label-bold text-label-bold text-on-secondary z-10 pointer-events-none">AFTER</div>
+<div class="absolute inset-y-0 left-1/2 w-1 bg-secondary -translate-x-1/2 z-10 opacity-70"></div>
+</div>
+<p class="text-center text-body-sm text-on-surface-variant mt-4 fade-in-up delay-1">Hover over image to slide.</p>
+</section>
+<!-- 3. Interactive Gallery Filter & Grid -->
+<section>
+<div class="text-center mb-stack_lg fade-in-up">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-stack_sm">Gallery</h2>
+</div>
+<div class="flex flex-wrap justify-center gap-4 mb-stack_lg fade-in-up delay-1">
+<button class="filter-btn active font-button text-button uppercase bg-secondary text-on-secondary px-6 py-2 rounded-sm border border-secondary transition-colors" data-filter="all">All</button>
+<button class="filter-btn font-button text-button uppercase bg-transparent text-on-surface px-6 py-2 rounded-sm border border-outline hover:border-secondary hover:text-secondary transition-colors" data-filter="haircuts">Haircuts</button>
+<button class="filter-btn font-button text-button uppercase bg-transparent text-on-surface px-6 py-2 rounded-sm border border-outline hover:border-secondary hover:text-secondary transition-colors" data-filter="beards">Beards</button>
+<button class="filter-btn font-button text-button uppercase bg-transparent text-on-surface px-6 py-2 rounded-sm border border-outline hover:border-secondary hover:text-secondary transition-colors" data-filter="colors">Colors</button>
+<button class="filter-btn font-button text-button uppercase bg-transparent text-on-surface px-6 py-2 rounded-sm border border-outline hover:border-secondary hover:text-secondary transition-colors" data-filter="kids">Kids</button>
+</div>
+<div class="masonry-grid" id="gallery-grid">
+<!-- Images will be rendered here. Adding data-category for filtering -->
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-1 hover-lift" data-category="haircuts" onclick="openLightbox(this)">
+<img class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Fade haircut" src="https://i.pinimg.com/736x/ca/ec/a4/caeca40d0617139b108f9c1a01373bf8.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-2 hover-lift" data-category="beards" onclick="openLightbox(this)">
+<img class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Beard trim" src="https://i.pinimg.com/736x/14/f3/4e/14f34eefdc9d6b4c790eebbe260082f4.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-3 hover-lift" data-category="haircuts" onclick="openLightbox(this)">
+<img class="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Barber tools" src="https://i.pinimg.com/736x/06/e0/46/06e046c87f5955e9fce8d5016d1a7dfc.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-4 hover-lift" data-category="colors" onclick="openLightbox(this)">
+<img class="w-full h-[450px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Barber cutting hair" src="https://i.pinimg.com/736x/a5/e6/8c/a5e68c84c0f15ffd864cb981c4857352.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-5 hover-lift" data-category="beards" onclick="openLightbox(this)">
+<img class="w-full h-[250px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Straight razor shave" src="https://i.pinimg.com/736x/86/4d/e3/864de3903c403c6a2ff5e8b16cbf9d5b.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm zoom-in delay-2 hover-lift" data-category="haircuts" onclick="openLightbox(this)">
+<img class="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Pompadour haircut" src="https://i.pinimg.com/736x/3f/31/be/3f31beb8cbdfe1f5dcb95bd6804d7f94.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="kids" onclick="openLightbox(this)">
+<img class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern haircut" src="https://i.pinimg.com/736x/90/08/ba/9008badfbc71ce74a26120e3172e5a1f.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="haircuts" onclick="openLightbox(this)">
+<img class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Barber haircut" src="https://i.pinimg.com/736x/3f/d2/63/3fd26343000aa82ad477ad46bc7c44f7.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="beards" onclick="openLightbox(this)">
+<img class="w-full h-[420px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Beard trimming" src="https://i.pinimg.com/736x/62/0c/6c/620c6c54de4573045820229d0167c306.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="haircuts" onclick="openLightbox(this)">
+<img class="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Precision haircut" src="https://i.pinimg.com/736x/32/87/32/3287328bf5e036d78a891d2434589d96.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="colors" onclick="openLightbox(this)">
+<img class="w-full h-[380px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Pompadour hair style" src="https://i.pinimg.com/1200x/6c/84/66/6c84669a30513580b60bca15f7e77064.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" data-category="haircuts" onclick="openLightbox(this)">
+<img class="w-full h-[260px] object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern side part" src="https://i.pinimg.com/1200x/77/69/4a/77694aef6beda7c9d8f1e6e8a8760a00.jpg"/>
+<div class="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl">zoom_in</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Video Tour -->
+<section class="mb-section_padding">
+<div class="text-center mb-stack_lg">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-stack_sm">Step Inside</h2>
+<p class="font-body-md text-on-surface-variant">Experience the atmosphere of BladeKing.</p>
+</div>
+<div class="relative w-full aspect-video bg-surface-container-high rounded-lg overflow-hidden border border-outline-variant/30 flex items-center justify-center cursor-pointer group">
+<img alt="Barbershop Interior Video Thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300" src="assets/images/salon_interior.png"/>
+<div class="z-10 w-20 h-20 bg-secondary rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-on-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</section>
+<!-- 5. Client Hall of Fame -->
+<section class="mb-section_padding bg-surface-container-low py-stack_lg px-gutter rounded-lg border border-outline-variant/20">
+<div class="text-center mb-stack_lg">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-stack_sm">Hall of Fame</h2>
+<p class="font-body-md text-on-surface-variant">Recognizing the gentlemen who define our legacy.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+<div class="text-center group">
+<div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-outline group-hover:border-secondary transition-colors mb-4">
+<img alt="Client portrait" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/c9/0c/05/c90c0554b082e4dc2412030ff45e4fce.jpg"/>
+</div>
+<h3 class="font-label-bold text-label-bold uppercase text-on-surface">Marcus T.</h3>
+<p class="font-body-sm text-secondary mt-1">Client since 2018</p>
+</div>
+<div class="text-center group">
+<div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-outline group-hover:border-secondary transition-colors mb-4">
+<img alt="Client portrait" class="w-full h-full object-cover" src="https://i.pinimg.com/736x/b6/f8/6d/b6f86d98994c811985e021c27fd02f76.jpg"/>
+</div>
+<h3 class="font-label-bold text-label-bold uppercase text-on-surface">David R.</h3>
+<p class="font-body-sm text-secondary mt-1">Client since 2019</p>
+</div>
+<div class="text-center group">
+<div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-outline group-hover:border-secondary transition-colors mb-4">
+<img alt="Client portrait" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/f2/b2/66/f2b26617dc73ab4247053c52748f27fc.jpg"/>
+</div>
+<h3 class="font-label-bold text-label-bold uppercase text-on-surface">Elijah W.</h3>
+<p class="font-body-sm text-secondary mt-1">Client since 2020</p>
+</div>
+<div class="text-center group">
+<div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-outline group-hover:border-secondary transition-colors mb-4">
+<img alt="Client portrait" class="w-full h-full object-cover" src="https://i.pinimg.com/736x/77/0c/d7/770cd703c27f6d2c95e4543f76477caf.jpg"/>
+</div>
+<h3 class="font-label-bold text-label-bold uppercase text-on-surface">James L.</h3>
+<p class="font-body-sm text-secondary mt-1">Client since 2021</p>
+</div>
+</div>
+</section>
+<!-- 6. Instagram Feed Integration -->
+<section>
+<div class="flex items-center justify-between mb-stack_md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">photo_camera</span>
+        @BladeKingBarbers
+    </h2>
+<a class="font-button text-button uppercase text-secondary hover:text-on-surface transition-colors" href="#">Follow Us</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<a class="block relative group overflow-hidden rounded-sm aspect-square bg-surface-container" href="#">
+<img alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://i.pinimg.com/736x/4c/52/56/4c5256619805526f82cbe5dd3a7f4f07.jpg"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-3xl">favorite</span>
+</div>
+</a>
+<a class="block relative group overflow-hidden rounded-sm aspect-square bg-surface-container" href="#">
+<img alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://i.pinimg.com/736x/6e/ad/91/6ead912ceb43c93b8e189d1eb802845f.jpg"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-3xl">favorite</span>
+</div>
+</a>
+<a class="block relative group overflow-hidden rounded-sm aspect-square bg-surface-container" href="#">
+<img alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://i.pinimg.com/736x/ef/55/ac/ef55acaed134cf97d2a5f9f1e4815295.jpg"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-3xl">favorite</span>
+</div>
+</a>
+<a class="block relative group overflow-hidden rounded-sm aspect-square bg-surface-container" href="#">
+<img alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://i.pinimg.com/736x/c1/d9/6c/c1d96c1f7a256e1a4dc31da44d715178.jpg"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-3xl">favorite</span>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-section_padding pb-stack_lg bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant mt-section_padding">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-gutter max-w-[1200px] mx-auto px-gutter mb-stack_lg">
+<div class="flex flex-col gap-3">
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+            BladeKing
+        </a>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Premium grooming for the modern gentleman. Experience the luxury of a perfect cut.</p>
+<div class="flex items-center gap-2 text-on-surface-variant text-body-sm mt-2">
+<span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+<span>123 Grooming Street, Chennai 600001</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Navigation</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="gallery.html">Gallery</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="booking.html">Booking</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Hours</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex justify-between max-w-[180px]"><span>Mon-Fri</span><span>9am - 8pm</span></li>
+<li class="flex justify-between max-w-[180px]"><span>Saturday</span><span>9am - 7pm</span></li>
+<li class="flex justify-between max-w-[180px]"><span>Sunday</span><span class="text-secondary font-semibold">Closed</span></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Legal & Booking</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant mb-4">
+<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+<a href="booking.html" class="inline-block font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-5 py-2.5 rounded hover:bg-secondary-fixed transition-colors text-center">Book Now</a>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto px-gutter text-center border-t border-outline-variant/30 pt-stack_md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 BladeKing Barbershop. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- Back to Top Button -->
+<button aria-label="Back to Top" id="back-to-top" class="fixed bottom-20 md:bottom-8 right-6 z-50 p-3 rounded-full bg-secondary text-on-secondary shadow-lg hover:bg-secondary-fixed opacity-0 pointer-events-none transition-all duration-300 transform hover:scale-110 focus:outline-none flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_upward</span>
+</button>
+<!-- Lightbox Overlay -->
+<div class="lightbox-overlay fixed inset-0 z-[100] bg-background/95 backdrop-blur-md hidden items-center justify-center p-4 cursor-pointer" id="lightbox">
+<button aria-label="Close Lightbox" id="close-lightbox" class="absolute top-6 right-6 z-20 text-on-surface hover:text-secondary p-2 transition-colors cursor-pointer" onclick="closeLightbox(event)">
+<span class="material-symbols-outlined text-4xl pointer-events-none">close</span>
+</button>
+<img alt="Enlarged gallery view" class="max-w-full max-h-[85vh] object-contain rounded-sm border border-outline-variant/50 shadow-2xl z-10 cursor-default" id="lightbox-img" src="" onclick="event.stopPropagation()"/>
+</div>
+<script>
+        // Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const masonryItems = document.querySelectorAll('.masonry-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-secondary', 'text-on-secondary', 'active');
+                    b.classList.add('bg-transparent', 'text-on-surface');
+                });
+                btn.classList.remove('bg-transparent', 'text-on-surface');
+                btn.classList.add('bg-secondary', 'text-on-secondary', 'active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                masonryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        item.classList.add('visible');
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeLightboxBtn = document.getElementById('close-lightbox');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            if (img && lightbox && lightboxImg) {
+                lightboxImg.src = img.src;
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox(e) {
+            if (e && e.stopPropagation) e.stopPropagation();
+            if (lightbox) {
+                lightbox.classList.remove('active');
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        if (closeLightboxBtn) {
+            closeLightboxBtn.addEventListener('click', closeLightbox);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+                closeLightbox(e);
+            }
+        });
+
+        if (lightbox) {
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox(e);
+                }
+            });
+        }
+
+        // Theme Toggle Logic
+        const themeToggleBtns = document.querySelectorAll('#theme-toggle, .theme-toggle-btn');
+        const html = document.documentElement;
+
+        function updateThemeUI() {
+            const isDark = html.classList.contains('dark');
+            themeToggleBtns.forEach(btn => {
+                btn.innerHTML = isDark 
+                    ? '<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>' 
+                    : '<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>';
+            });
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            html.classList.remove('dark');
+        } else {
+            html.classList.add('dark');
+        }
+        updateThemeUI();
+
+        themeToggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    html.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+                updateThemeUI();
+            });
+        });
+
+        // Mobile Menu Drawer Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMobileNav = document.getElementById('close-mobile-nav');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+
+        function openDrawer() {
+            if (mobileNav) mobileNav.classList.remove('translate-x-full');
+            if (mobileNavOverlay) {
+                mobileNavOverlay.classList.remove('hidden');
+                setTimeout(() => mobileNavOverlay.classList.remove('opacity-0'), 10);
+            }
+        }
+
+        function closeDrawer() {
+            if (mobileNav) mobileNav.classList.add('translate-x-full');
+            if (mobileNavOverlay) {
+                mobileNavOverlay.classList.add('opacity-0');
+                setTimeout(() => mobileNavOverlay.classList.add('hidden'), 300);
+            }
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
+        if (closeMobileNav) closeMobileNav.addEventListener('click', closeDrawer);
+        if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', closeDrawer);
+
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .zoom-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

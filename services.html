@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>
+    if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.classList.remove('dark');
+    } else {
+        document.documentElement.classList.add('dark');
+    }
+</script>
+<title>Services | BladeKing Barbershop</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter & Playfair Display -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    screens: {
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1025px',
+                        'xl': '1280px',
+                        '2xl': '1536px'
+                    },
+                    colors: {
+                        "background": "var(--bg-background)",
+                        "on-background": "var(--bg-on-background)",
+                        "surface": "var(--bg-surface)",
+                        "on-surface": "var(--bg-on-surface)",
+                        "surface-variant": "var(--bg-surface-variant)",
+                        "on-surface-variant": "var(--bg-on-surface-variant)",
+                        "surface-container": "var(--bg-surface-container)",
+                        "surface-container-low": "var(--bg-surface-container-low)",
+                        "surface-container-lowest": "var(--bg-surface-container-lowest)",
+                        "surface-container-high": "var(--bg-surface-container-high)",
+                        "surface-container-highest": "var(--bg-surface-container-highest)",
+                        "primary-container": "var(--bg-primary-container)",
+                        "surface-dim": "var(--bg-surface-dim)",
+                        "surface-bright": "var(--bg-surface-bright)",
+                        "outline": "var(--bg-outline)",
+                        "outline-variant": "var(--bg-outline-variant)",
+                        "inverse-surface": "var(--bg-inverse-surface)",
+                        "inverse-on-surface": "var(--bg-inverse-on-surface)",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-tint": "#c8c6c5",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary": "#3d2e00",
+                        "on-primary": "#313030",
+                        "on-tertiary-container": "#da4c3b",
+                        "secondary-container": "#785d00",
+                        "secondary": "#e6c364",
+                        "secondary-fixed-dim": "#e6c364",
+                        "inverse-primary": "#5f5e5e",
+                        "on-tertiary-fixed": "#410000",
+                        "on-tertiary": "#690001",
+                        "on-primary-fixed-variant": "#474646",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#fdd977",
+                        "tertiary-container": "#2d0000",
+                        "on-secondary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#8e130c",
+                        "on-primary-container": "#7e7c7c",
+                        "tertiary": "#ffb4a9",
+                        "on-secondary-fixed-variant": "#584400",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#ffe08f",
+                        "primary": "#c8c6c5"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        header_height: "72px",
+                        gutter: "24px",
+                        stack_lg: "32px",
+                        container_max_width: "1200px",
+                        stack_sm: "8px",
+                        stack_md: "16px",
+                        margin_mobile: "16px",
+                        section_padding: "80px"
+                    },
+                    fontFamily: {
+                        "label-bold": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "button": ["Inter"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    fontSize: {
+                        "label-bold": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" }],
+                        "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-sm": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "800" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-md": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "button": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing="-0.02em", fontWeight: "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        :root {
+            --bg-background: #f4f4f5;
+            --bg-on-background: #18181b;
+            --bg-surface: #ffffff;
+            --bg-on-surface: #18181b;
+            --bg-surface-variant: #e4e4e7;
+            --bg-on-surface-variant: #52525b;
+            --bg-surface-container: #f4f4f5;
+            --bg-surface-container-low: #ffffff;
+            --bg-surface-container-lowest: #ffffff;
+            --bg-surface-container-high: #e4e4e7;
+            --bg-surface-container-highest: #d4d4d8;
+            --bg-primary-container: #e4e4e7;
+            --bg-surface-dim: #f4f4f5;
+            --bg-surface-bright: #ffffff;
+            --bg-outline: #a1a1aa;
+            --bg-outline-variant: #e4e4e7;
+            --bg-inverse-surface: #18181b;
+            --bg-inverse-on-surface: #f4f4f5;
+            --bg-nav-backdrop: rgba(255, 255, 255, 0.90);
+        }
+
+        .dark {
+            --bg-background: #141313;
+            --bg-on-background: #e5e2e1;
+            --bg-surface: #141313;
+            --bg-on-surface: #e5e2e1;
+            --bg-surface-variant: #353434;
+            --bg-on-surface-variant: #c4c7c7;
+            --bg-surface-container: #201f1f;
+            --bg-surface-container-low: #1c1b1b;
+            --bg-surface-container-lowest: #0e0e0e;
+            --bg-surface-container-high: #2b2a2a;
+            --bg-surface-container-highest: #353434;
+            --bg-primary-container: #111111;
+            --bg-surface-dim: #141313;
+            --bg-surface-bright: #3a3939;
+            --bg-outline: #8e9192;
+            --bg-outline-variant: #444748;
+            --bg-inverse-surface: #e5e2e1;
+            --bg-inverse-on-surface: #313030;
+            --bg-nav-backdrop: rgba(20, 19, 19, 0.90);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-background);
+            color: var(--bg-on-background);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .glass-nav {
+            background-color: var(--bg-nav-backdrop);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: background-color 0.3s ease;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Premium Animation System */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .zoom-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger Delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* Premium Micro-Interactions */
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px -8px rgba(230, 195, 100, 0.2);
+            border-color: #e6c364 !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col pt-header_height">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full h-[72px] z-50 glass-nav border-b border-outline-variant/30 hidden lg:block">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter w-full h-full">
+<a class="font-headline-md text-headline-md text-on-surface flex items-center gap-2.5" href="index.html">
+<img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-8 h-8 rounded-full border border-secondary/40 object-cover shadow-sm"/>
+<span>BladeKing</span>
+</a>
+<nav class="flex items-center gap-6">
+<div class="relative group">
+    <button class="flex items-center gap-1 text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider focus:outline-none">
+        <span>Home</span>
+        <span class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
+    </button>
+    <div class="absolute top-full left-0 mt-2 w-52 bg-surface-container border border-outline-variant rounded shadow-xl py-2 hidden group-hover:block transition-all z-50">
+        <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-base">storefront</span>
+            <span>Home 1 (Classic Hub)</span>
+        </a>
+        <a href="home2.html" class="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-base">spa</span>
+            <span>Home 2 (Sanctuary)</span>
+        </a>
+    </div>
+</div>
+<a class="text-secondary border-b-2 border-secondary pb-1 font-button text-button uppercase tracking-wider" href="services.html">Services</a>
+<a class="text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider" href="gallery.html">Gallery</a>
+<a class="text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider" href="blog.html">Blog</a>
+<a class="text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider" href="booking.html">Booking</a>
+<a class="text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button aria-label="Toggle Theme" class="text-on-surface hover:text-secondary transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="text-on-surface hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">content_cut</span>
+</button>
+<a href="login.html" class="font-button text-button uppercase tracking-wider text-secondary dark:text-secondary border border-secondary px-4 py-2 hover:bg-secondary hover:text-on-secondary transition-all rounded inline-block">Login</a>
+<a href="booking.html" class="font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-4 py-2 hover:bg-secondary-fixed transition-all rounded inline-block">Book Now</a>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Mobile Top Header & Drawer) -->
+<div class="lg:hidden fixed top-0 left-0 w-full z-50 glass-nav border-b border-outline-variant/30 h-header_height flex items-center justify-between px-margin_mobile">
+<a href="index.html" class="font-headline-sm text-headline-sm text-secondary flex items-center gap-2">
+<img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-8 h-8 rounded-full border border-secondary/40 object-cover shadow-sm"/>
+<span>BladeKing</span>
+</a>
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="text-on-surface p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+
+<!-- SideNavBar (Mobile Drawer) -->
+<div class="fixed inset-y-0 right-0 w-[280px] bg-surface dark:bg-surface border-l border-outline-variant shadow-[-4px_0px_10px_0px_rgba(0,0,0,0.3)] z-[60] transform translate-x-full transition-transform duration-300 flex flex-col p-stack_md lg:hidden" id="mobile-nav">
+<div class="flex justify-between items-center mb-6 border-b border-outline-variant pb-4">
+<div class="flex items-center gap-2">
+<img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-9 h-9 rounded-full border border-secondary/40 object-cover shadow-sm"/>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-secondary">BladeKing</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Premium Grooming</p>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-on-surface" id="close-mobile-nav">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+
+<!-- Home Switcher in Mobile Drawer -->
+<div class="flex items-center p-1 bg-surface-container rounded-lg mb-4 border border-outline-variant/40">
+    <a href="index.html" class="flex-1 py-1.5 text-center text-xs font-semibold text-on-surface-variant hover:text-on-surface rounded transition-colors">Home 1</a>
+    <a href="home2.html" class="flex-1 py-1.5 text-center text-xs font-semibold text-on-surface-variant hover:text-on-surface rounded transition-colors">Home 2</a>
+</div>
+
+<nav class="flex flex-col gap-2 flex-grow overflow-y-auto">
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span> Home 1 (Classic)
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="home2.html">
+<span class="material-symbols-outlined">spa</span> Home 2 (Sanctuary)
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-secondary bg-secondary-container/10 border-r-4 border-secondary font-body-md text-body-md transition-colors translate-x-1" href="services.html">
+<span class="material-symbols-outlined">content_cut</span> Services
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="gallery.html">
+<span class="material-symbols-outlined">photo_library</span> Gallery
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="blog.html">
+<span class="material-symbols-outlined">article</span> Blog
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="booking.html">
+<span class="material-symbols-outlined">calendar_month</span> Booking
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="index.html#contact">
+<span class="material-symbols-outlined">contact_support</span> Contact
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<a href="booking.html" class="w-full inline-block text-center font-button text-button uppercase tracking-wider px-6 py-3 bg-secondary text-on-secondary hover:bg-secondary-fixed transition-all rounded">Book Now</a>
+</div>
+</div>
+<!-- Mobile Nav Overlay -->
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-300 lg:hidden" id="mobile-nav-overlay"></div>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col">
+<!-- Hero Section -->
+<section class="relative h-[300px] flex flex-col justify-center items-center text-center px-margin_mobile md:px-gutter mt-header_height lg:mt-0 bg-black">
+<div class="absolute inset-0 bg-cover bg-center z-0 opacity-50" data-alt="A cinematic, high-contrast photograph of a luxury barbershop interior focusing on vintage leather chairs." style="background-image: url('assets/images/salon_interior.png')"></div>
+<div class="absolute inset-0 bg-black/60 z-0"></div>
+<div class="relative z-10 flex flex-col items-center gap-stack_sm fade-in-up">
+<div class="flex items-center gap-2 font-label-bold text-label-bold text-white/80 uppercase tracking-widest mb-4">
+<a class="hover:text-secondary transition-colors" href="index.html">Home</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-secondary">Services</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white">Our Services</h1>
+</div>
+</section>
+<!-- Featured Packages -->
+<section class="bg-surface-container-low py-section_padding w-full border-b border-outline-variant/30">
+<div class="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
+<div class="fade-in-up text-center mb-stack_lg">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Featured Packages</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[600px] mx-auto">Elevate your grooming routine with our carefully curated premium bundles.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface border border-outline-variant p-stack_md flex flex-col gap-stack_sm hover:border-secondary transition-all group rounded-lg text-center hover-lift fade-in-up delay-1">
+<div class="mx-auto bg-surface-container-high w-16 h-16 rounded-full flex items-center justify-center mb-2 group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:text-on-secondary">diamond</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">The Executive</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Classic haircut, beard trim, and a relaxing scalp massage. The standard for professionals.</p>
+<span class="font-headline-md text-headline-md text-secondary mt-auto mb-4">₹599</span>
+<button class="w-full bg-secondary text-on-secondary font-button text-button uppercase py-3 rounded hover:bg-secondary-fixed transition-colors">Book Package</button>
+</div>
+<div class="bg-surface border-2 border-secondary p-stack_md flex flex-col gap-stack_sm hover:border-secondary transition-all group rounded-lg text-center relative transform md:-translate-y-4 shadow-lg shadow-secondary/10 hover-lift fade-in-up delay-2">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-on-secondary font-label-bold text-label-bold uppercase px-4 py-1 rounded-full">Most Popular</div>
+<div class="mx-auto bg-secondary/20 w-16 h-16 rounded-full flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-3xl text-secondary">workspace_premium</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">The Monarch</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Precision skin fade, hot towel shave, facial scrub, and premium styling.</p>
+<span class="font-headline-md text-headline-md text-secondary mt-auto mb-4">₹899</span>
+<button class="w-full bg-secondary text-on-secondary font-button text-button uppercase py-3 rounded hover:bg-secondary-fixed transition-colors">Book Package</button>
+</div>
+<div class="bg-surface border border-outline-variant p-stack_md flex flex-col gap-stack_sm hover:border-secondary transition-all group rounded-lg text-center hover-lift fade-in-up delay-3">
+<div class="mx-auto bg-surface-container-high w-16 h-16 rounded-full flex items-center justify-center mb-2 group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:text-on-secondary">celebration</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Groom's Special</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">The ultimate preparation. Full styling, shave, facial, and a complimentary drink.</p>
+<span class="font-headline-md text-headline-md text-secondary mt-auto mb-4">₹1299</span>
+<button class="w-full bg-secondary text-on-secondary font-button text-button uppercase py-3 rounded hover:bg-secondary-fixed transition-colors">Book Package</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter py-section_padding w-full">
+<div class="text-center mb-stack_lg fade-in-up">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Individual Services</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">A la carte grooming options tailored to your needs.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Service Card 1 -->
+<div class="bg-surface border border-surface-variant p-stack_md flex flex-col gap-stack_md hover:border-secondary transition-colors duration-300 group border-t-2 border-t-secondary rounded hover-lift fade-in-up delay-1">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary text-3xl">content_cut</span>
+<span class="font-headline-md text-headline-md text-secondary">₹299</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Classic Haircut</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Traditional precision cut tailored to your style with a sharp finish.</p>
+</div>
+<div class="flex items-center gap-2 font-label-bold text-label-bold text-on-surface-variant uppercase mt-auto">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                        30 MIN
+                    </div>
+<button class="w-full bg-transparent border border-on-surface text-on-surface hover:bg-secondary hover:border-secondary hover:text-on-secondary font-button text-button uppercase py-3 transition-all rounded">Book This Service</button>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-surface border border-surface-variant p-stack_md flex flex-col gap-stack_md hover:border-secondary transition-colors duration-300 group rounded hover-lift fade-in-up delay-2">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary text-3xl">face</span>
+<span class="font-headline-md text-headline-md text-secondary">₹199</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Beard Trim</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Expert sculpting and lining to keep your facial hair looking sharp.</p>
+</div>
+<div class="flex items-center gap-2 font-label-bold text-label-bold text-on-surface-variant uppercase mt-auto">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                        20 MIN
+                    </div>
+<button class="w-full bg-transparent border border-on-surface text-on-surface hover:bg-secondary hover:border-secondary hover:text-on-secondary font-button text-button uppercase py-3 transition-all rounded">Book This Service</button>
+</div>
+<!-- Service Card 3 -->
+<div class="bg-surface border border-surface-variant p-stack_md flex flex-col gap-stack_md hover:border-secondary transition-colors duration-300 group rounded hover-lift fade-in-up delay-3">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary text-3xl">local_fire_department</span>
+<span class="font-headline-md text-headline-md text-secondary">₹349</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Hot Towel Shave</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The ultimate traditional wet shave with soothing hot towel treatment.</p>
+</div>
+<div class="flex items-center gap-2 font-label-bold text-label-bold text-on-surface-variant uppercase mt-auto">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                        45 MIN
+                    </div>
+<button class="w-full bg-transparent border border-on-surface text-on-surface hover:bg-secondary hover:border-secondary hover:text-on-secondary font-button text-button uppercase py-3 transition-all rounded">Book This Service</button>
+</div>
+<!-- Service Card 4 -->
+<div class="bg-surface border border-surface-variant p-stack_md flex flex-col gap-stack_md hover:border-secondary transition-colors duration-300 group rounded hover-lift fade-in-up delay-4">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary text-3xl">auto_awesome</span>
+<span class="font-headline-md text-headline-md text-secondary">₹499</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">The Royal Package</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Haircut, beard trim, and mini facial for the complete grooming experience.</p>
+</div>
+<div class="flex items-center gap-2 font-label-bold text-label-bold text-on-surface-variant uppercase mt-auto">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                        60 MIN
+                    </div>
+<button class="w-full bg-transparent border border-on-surface text-on-surface hover:bg-secondary hover:border-secondary hover:text-on-secondary font-button text-button uppercase py-3 transition-all rounded">Book This Service</button>
+</div>
+</div>
+</section>
+<!-- Add-on Treatments -->
+<section class="bg-surface-container-low py-section_padding w-full border-t border-outline-variant/30">
+<div class="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
+<div class="text-center mb-stack_lg">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Add-on Treatments</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Enhance your visit with our specialized treatments.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface p-stack_md rounded border border-outline-variant flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">spa</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Scalp Massage</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">15-minute invigorating scalp treatment with essential oils.</p>
+<span class="font-headline-sm text-headline-sm text-secondary">₹149</span>
+</div>
+</div>
+<div class="bg-surface p-stack_md rounded border border-outline-variant flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">face_retouching_natural</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Black Mask Facial</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Deep cleansing peel-off mask to remove impurities.</p>
+<span class="font-headline-sm text-headline-sm text-secondary">₹199</span>
+</div>
+</div>
+<div class="bg-surface p-stack_md rounded border border-outline-variant flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">brush</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Beard Coloring</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Natural gray coverage for a youthful, fuller beard look.</p>
+<span class="font-headline-sm text-headline-sm text-secondary">₹249</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Membership Section -->
+<section class="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter py-section_padding w-full">
+<div class="bg-gradient-to-r from-surface-container-high to-surface-container border border-secondary/30 rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="space-y-4 max-w-xl">
+<span class="bg-secondary/20 text-secondary font-label-bold text-label-bold uppercase px-3 py-1 rounded">VIP Membership</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Join the BladeKing Club</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Enjoy unlimited haircuts, priority booking, 15% off all products, and complimentary drinks on every visit.</p>
+</div>
+<div class="text-center md:text-right shrink-0">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Starting at</p>
+<p class="font-display-lg text-display-lg text-secondary mb-4">₹999<span class="text-sm font-normal text-on-surface-variant">/mo</span></p>
+<button class="bg-secondary text-on-secondary font-button text-button uppercase py-3 px-8 rounded hover:bg-secondary-fixed transition-colors">Become a Member</button>
+</div>
+</div>
+</section>
+<!-- Service Price List Summary -->
+<section class="bg-surface-container-lowest py-section_padding w-full border-t border-outline-variant/30">
+<div class="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter">
+<h2 class="font-headline-md text-headline-md text-on-surface text-center mb-stack_lg">Complete Price List</h2>
+<div class="max-w-3xl mx-auto bg-surface rounded-lg border border-outline-variant overflow-hidden">
+<div class="grid grid-cols-12 gap-4 p-4 bg-surface-container font-label-bold text-label-bold text-on-surface uppercase border-b border-outline-variant">
+<div class="col-span-6 md:col-span-8">Service Name</div>
+<div class="col-span-3 md:col-span-2 text-center">Duration</div>
+<div class="col-span-3 md:col-span-2 text-right">Price</div>
+</div>
+<!-- Table Rows -->
+<div class="grid grid-cols-12 gap-4 p-4 items-center hover:bg-surface-container-high transition-colors">
+<div class="col-span-6 md:col-span-8 font-body-md text-body-md text-on-surface">Classic Haircut</div>
+<div class="col-span-3 md:col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant">30m</div>
+<div class="col-span-3 md:col-span-2 text-right font-headline-sm text-headline-sm text-secondary">₹299</div>
+</div>
+<div class="grid grid-cols-12 gap-4 p-4 items-center hover:bg-surface-container-high transition-colors">
+<div class="col-span-6 md:col-span-8 font-body-md text-body-md text-on-surface">Skin Fade</div>
+<div class="col-span-3 md:col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant">45m</div>
+<div class="col-span-3 md:col-span-2 text-right font-headline-sm text-headline-sm text-secondary">₹349</div>
+</div>
+<div class="grid grid-cols-12 gap-4 p-4 items-center hover:bg-surface-container-high transition-colors">
+<div class="col-span-6 md:col-span-8 font-body-md text-body-md text-on-surface">Beard Trim &amp; Line</div>
+<div class="col-span-3 md:col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant">20m</div>
+<div class="col-span-3 md:col-span-2 text-right font-headline-sm text-headline-sm text-secondary">₹199</div>
+</div>
+<div class="grid grid-cols-12 gap-4 p-4 items-center hover:bg-surface-container-high transition-colors">
+<div class="col-span-6 md:col-span-8 font-body-md text-body-md text-on-surface">Hot Towel Shave</div>
+<div class="col-span-3 md:col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant">45m</div>
+<div class="col-span-3 md:col-span-2 text-right font-headline-sm text-headline-sm text-secondary">₹349</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gift Cards Section -->
+<section class="bg-surface py-section_padding w-full border-t border-outline-variant/30">
+<div class="max-w-container_max_width mx-auto px-margin_mobile md:px-gutter flex flex-col md:flex-row items-center gap-stack_lg">
+<div class="w-full md:w-1/2 rounded-lg bg-surface-container-high p-8 flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-9xl text-secondary opacity-50">card_giftcard</span>
+</div>
+<div class="w-full md:w-1/2 flex flex-col gap-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Give the Gift of Grooming</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Treat a friend or loved one to a premium barbershop experience. Our digital gift cards can be redeemed for any service or product.</p>
+<div class="flex gap-4 mt-4">
+<button class="bg-secondary text-on-secondary font-button text-button uppercase py-3 px-6 rounded hover:bg-secondary-fixed transition-colors">Purchase Gift Card</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Global CTA -->
+<section class="bg-surface-container py-section_padding w-full text-center border-t border-outline-variant/30">
+<div class="max-w-[600px] mx-auto px-margin_mobile">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Ready for a Transformation?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Secure your spot today and experience the finest grooming in town.</p>
+<a href="booking.html" class="bg-secondary text-on-secondary hover:bg-secondary-fixed transition-colors font-button text-button uppercase py-4 px-8 w-full md:w-auto rounded shadow-lg inline-block">Book An Appointment</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-section_padding pb-stack_lg bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant mt-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-gutter max-w-[1200px] mx-auto px-gutter mb-stack_lg">
+<div class="flex flex-col gap-3">
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+            BladeKing
+        </a>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Premium grooming for the modern gentleman. Experience the luxury of a perfect cut.</p>
+<div class="flex items-center gap-2 text-on-surface-variant text-body-sm mt-2">
+<span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+<span>123 Grooming Street, Chennai 600001</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Navigation</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="services.html">Services</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="gallery.html">Gallery</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="blog.html">Blog</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="booking.html">Booking</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Hours</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex justify-between max-w-[180px]"><span>Mon-Fri</span><span>9am - 8pm</span></li>
+<li class="flex justify-between max-w-[180px]"><span>Saturday</span><span>9am - 7pm</span></li>
+<li class="flex justify-between max-w-[180px]"><span>Sunday</span><span class="text-secondary font-semibold">Closed</span></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Legal & Booking</h4>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant mb-4">
+<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+<a href="booking.html" class="inline-block font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-5 py-2.5 rounded hover:bg-secondary-fixed transition-colors text-center">Book Now</a>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto px-gutter text-center border-t border-outline-variant/30 pt-stack_md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 BladeKing Barbershop. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- Back to Top Button -->
+<button aria-label="Back to Top" id="back-to-top" class="fixed bottom-20 md:bottom-8 right-6 z-50 p-3 rounded-full bg-secondary text-on-secondary shadow-lg hover:bg-secondary-fixed opacity-0 pointer-events-none transition-all duration-300 transform hover:scale-110 focus:outline-none flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_upward</span>
+</button>
+<script>
+        const mobileMenuToggle = document.getElementById('mobile-menu-btn');
+        const closeMobileNav = document.getElementById('close-mobile-nav');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+
+        function toggleMobileMenu() {
+            const isClosed = mobileNav.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileNav.classList.remove('translate-x-full');
+                mobileNavOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileNavOverlay.classList.remove('opacity-0');
+                    mobileNavOverlay.classList.add('opacity-100');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileNav.classList.add('translate-x-full');
+                mobileNavOverlay.classList.remove('opacity-100');
+                mobileNavOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    mobileNavOverlay.classList.add('hidden');
+                }, 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuToggle) mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        if (closeMobileNav) closeMobileNav.addEventListener('click', toggleMobileMenu);
+        if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', toggleMobileMenu);
+
+        // Theme Toggle Logic
+        const themeToggleBtns = document.querySelectorAll('#theme-toggle, .theme-toggle-btn');
+        const html = document.documentElement;
+
+        function updateThemeUI() {
+            const isDark = html.classList.contains('dark');
+            themeToggleBtns.forEach(btn => {
+                btn.innerHTML = isDark 
+                    ? '<span class="material-symbols-outlined">light_mode</span>' 
+                    : '<span class="material-symbols-outlined">dark_mode</span>';
+            });
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            html.classList.remove('dark');
+        } else {
+            html.classList.add('dark');
+        }
+        updateThemeUI();
+
+        themeToggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    html.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+                updateThemeUI();
+            });
+        });
+
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .zoom-in').forEach(el => {
+            observer.observe(el);
+        });
+</script>
+</body>
+</html>
