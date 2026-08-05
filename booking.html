@@ -271,70 +271,88 @@
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col custom-scrollbar overflow-x-hidden">
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full h-[72px] z-50 glass-nav border-b border-outline-variant/30 transition-all duration-300">
+<!-- Navigation Shell (TopNavBar) -->
+<nav aria-label="Main Navigation" class="fixed top-0 w-full h-[72px] z-50 border-b border-outline-variant/30 glass-nav transition-colors duration-300 hidden lg:flex">
 <div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter w-full h-full">
-<a href="index.html" class="font-headline-md text-headline-md text-on-surface dark:text-on-surface flex items-center gap-2.5 tracking-tight">
+<div class="flex items-center gap-2">
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface dark:text-on-surface flex items-center gap-2.5">
 <img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-8 h-8 rounded-full border border-secondary/40 object-cover shadow-sm"/>
 <span>BladeKing</span>
 </a>
-<nav class="hidden lg:flex items-center gap-6">
-<div class="relative group">
-    <button class="border-b-2 border-transparent pb-1 flex items-center gap-1 text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider focus:outline-none">
-        <span>Home</span>
-        <span class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
-    </button>
-    <div class="absolute top-full left-0 mt-2 w-52 bg-surface-container border border-outline-variant rounded shadow-xl py-2 hidden group-hover:block transition-all z-50">
-        <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
-            <span class="material-symbols-outlined text-base">storefront</span>
-            <span>Home 1 (Classic Hub)</span>
-        </a>
-        <a href="home2.html" class="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors">
-            <span class="material-symbols-outlined text-base">spa</span>
-            <span>Home 2 (Sanctuary)</span>
-        </a>
-    </div>
 </div>
-<a class="border-b-2 border-transparent pb-1 text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider" href="services.html">Services</a>
-<a class="border-b-2 border-transparent pb-1 text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider" href="gallery.html">Gallery</a>
-<a class="border-b-2 border-transparent pb-1 text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider" href="blog.html">Blog</a>
-<a class="border-b-2 border-secondary pb-1 text-secondary font-button text-button uppercase tracking-wider" href="booking.html">Booking</a>
-<a class="border-b-2 border-transparent pb-1 text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider" href="contact.html">Contact</a>
-
-</nav>
-<div class="hidden lg:flex items-center gap-4">
-<div class="flex items-center gap-2">
+<ul class="flex items-center gap-4">
+            <!-- Home Dropdown -->
+            <li class="relative group">
+                <button class="flex items-center gap-1 font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 focus:outline-none">
+                    <span>Home 1</span>
+                    <span class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
+                </button>
+                <div class="absolute top-full left-0 mt-2 w-52 bg-surface-container border border-outline-variant rounded shadow-xl py-2 hidden group-hover:block transition-all z-50">
+                    <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-secondary bg-secondary/10 font-semibold">
+                        <span class="material-symbols-outlined text-base">storefront</span>
+                        <span>Home 1 (Classic Hub)</span>
+                    </a>
+                    <a href="home2.html" class="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+                        <span class="material-symbols-outlined text-base">spa</span>
+                        <span>Home 2 (Sanctuary)</span>
+                    </a>
+                </div>
+            </li>
+<li>
+<a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300" href="services.html">Services</a>
+</li>
+<li>
+<a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300" href="gallery.html">Gallery</a>
+</li>
+<li>
+<a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300" href="blog.html">Blog</a>
+</li>
+<li>
+<a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300" href="booking.html">Booking</a>
+</li>
+<li>
+<a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300" href="contact.html">Contact</a>
+</li>
+</ul>
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Theme" class="text-on-surface hover:text-secondary transition-colors duration-300" id="theme-toggle">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
 <button aria-label="Toggle Direction" id="rtl-toggle" title="Toggle RTL/LTR"
 class="rtl-toggle-btn inline-flex items-center justify-center h-7 px-2.5 rounded-full border border-secondary text-secondary font-bold text-[10px] uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-all duration-300">
 RTL
 </button>
-<button aria-label="Dark Mode Toggle" class="p-2 text-on-surface hover:text-secondary transition-colors rounded-full hover:bg-surface-container-high" id="theme-toggle">
-<span class="material-symbols-outlined">dark_mode</span>
-</button>
-<button aria-label="Book Now" class="p-2 text-on-surface hover:text-secondary transition-colors rounded-full hover:bg-surface-container-high">
-<span class="material-symbols-outlined">content_cut</span>
-</button>
+<a href="login.html" class="font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300 bg-transparent border border-outline-variant px-3 py-1.5 rounded inline-block text-center whitespace-nowrap">
+    Login
+</a>
+<a href="booking.html" class="font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-4 py-1.5 rounded hover:bg-secondary-fixed transition-colors duration-300 inline-block text-center whitespace-nowrap">
+    Book Now
+</a>
 </div>
-<a href="login.html" class="font-button text-button uppercase tracking-wider px-6 py-2 border border-outline-variant text-on-surface hover:text-secondary hover:border-secondary transition-all inline-block">Login</a>
-<a href="booking.html" class="font-button text-button uppercase tracking-wider px-6 py-2 bg-secondary text-on-secondary hover:bg-secondary-fixed transition-all inline-block">Book Now</a>
 </div>
-<!-- Mobile Menu Toggle -->
-<div class="lg:hidden flex items-center gap-2">
-<button aria-label="Toggle Direction" title="Toggle RTL/LTR"
-class="rtl-toggle-btn inline-flex items-center justify-center h-7 px-2.5 rounded-full border border-secondary text-secondary font-bold text-[10px] uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-all duration-300">
-RTL
-</button>
+</nav>
+<!-- Mobile Top Header -->
+<div class="lg:hidden fixed top-0 left-0 w-full z-50 glass-nav border-b border-outline-variant/30 h-[72px] flex items-center justify-between px-4">
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-8 h-8 rounded-full border border-secondary/40 object-cover shadow-sm"/>
+<span>BladeKing</span>
+</a>
+<div class="flex items-center gap-3">
+<button aria-label="Toggle Direction" class="font-button text-xs font-bold px-2.5 py-1 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" title="Toggle RTL/LTR">RTL</button>
 <button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn">
 <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
 </button>
-<button class="p-2 text-on-surface" id="mobile-menu-toggle">
+<button aria-label="Toggle Menu" class="p-2 text-on-surface" id="mobile-menu-btn">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
 </div>
-</header>
-<!-- SideNavBar (Mobile) -->
-<div class="fixed inset-y-0 right-0 w-[280px] bg-surface dark:bg-surface border-l border-outline-variant shadow-[-4px_0px_10px_0px_rgba(0,0,0,0.3)] z-[60] transform translate-x-full transition-transform duration-300 flex flex-col p-stack_md lg:hidden" id="mobile-nav">
+
+<!-- Mobile Nav Overlay -->
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-300 lg:hidden" id="mobile-nav-overlay"></div>
+
+<!-- Mobile Drawer -->
+<aside class="fixed inset-y-0 right-0 w-[280px] bg-surface dark:bg-surface border-l border-outline-variant shadow-[-4px_0px_10px_0px_rgba(0,0,0,0.3)] z-[60] transform translate-x-full transition-transform duration-300 flex flex-col p-stack_md lg:hidden" id="mobile-nav">
 <div class="flex justify-between items-center mb-6 border-b border-outline-variant pb-4">
 <div class="flex items-center gap-2">
 <img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-9 h-9 rounded-full border border-secondary/40 object-cover shadow-sm"/>
@@ -347,51 +365,56 @@ RTL
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
-
-<!-- Home Switcher in Mobile Drawer -->
-<div class="flex items-center p-1 bg-surface-container rounded-lg mb-4 border border-outline-variant/40">
-    <a href="index.html" class="flex-1 py-1.5 text-center text-xs font-semibold text-on-surface-variant hover:text-on-surface rounded transition-colors">Home 1</a>
-    <a href="home2.html" class="flex-1 py-1.5 text-center text-xs font-semibold text-on-surface-variant hover:text-on-surface rounded transition-colors">Home 2</a>
-</div>
+    <!-- Home Switcher in Mobile Drawer -->
+    <div class="flex items-center p-1 bg-surface-container rounded-lg mb-4 border border-outline-variant/40">
+        <a href="index.html" class="flex-1 py-1.5 text-center text-xs font-semibold bg-secondary text-on-secondary rounded shadow-sm">Home 1 (Classic)</a>
+        <a href="home2.html" class="flex-1 py-1.5 text-center text-xs font-semibold text-on-surface-variant hover:text-on-surface rounded transition-colors">Home 2 (Sanctuary)</a>
+    </div>
 
 <nav class="flex flex-col gap-2 flex-grow overflow-y-auto">
-<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="index.html">
-<span class="material-symbols-outlined">home</span>
-Home 1 (Classic)
+<a class="flex items-center gap-4 p-3 rounded-lg text-secondary bg-secondary-container/10 border-r-4 border-secondary font-body-md text-body-md transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span> Home 1 (Classic)
 </a>
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="home2.html">
-<span class="material-symbols-outlined">spa</span>
-Home 2 (Sanctuary)
+<span class="material-symbols-outlined">spa</span> Home 2 (Sanctuary)
 </a>
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="services.html">
-<span class="material-symbols-outlined">content_cut</span>
-Services
+<span class="material-symbols-outlined">content_cut</span> Services
 </a>
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="gallery.html">
-<span class="material-symbols-outlined">photo_library</span>
-Gallery
+<span class="material-symbols-outlined">photo_library</span> Gallery
 </a>
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="blog.html">
-<span class="material-symbols-outlined">article</span>
-Blog
+<span class="material-symbols-outlined">article</span> Blog
 </a>
-<a class="flex items-center gap-4 p-3 rounded-lg text-secondary bg-secondary-container/10 border-r-4 border-secondary font-body-md text-body-md transition-colors translate-x-1" href="booking.html">
-<span class="material-symbols-outlined">calendar_month</span>
-Booking
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="booking.html">
+<span class="material-symbols-outlined">calendar_month</span> Booking
 </a>
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="contact.html">
-<span class="material-symbols-outlined">contact_support</span>
-Contact
+<span class="material-symbols-outlined">contact_support</span> Contact
 </a>
 </nav>
 <div class="mt-auto pt-4 border-t border-outline-variant">
 <a href="booking.html" class="w-full inline-block text-center font-button text-button uppercase tracking-wider px-6 py-3 bg-secondary text-on-secondary hover:bg-secondary-fixed transition-all rounded">Book Now</a>
 </div>
-</div>
-<!-- Mobile Nav Overlay -->
-<div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-300 lg:hidden" id="mobile-nav-overlay"></div>
-<!-- Main Content -->
-<main class="flex-grow pt-[104px] pb-section_padding space-y-section_padding">
+</aside>
+
+<!-- Mobile Nav (BottomNavBar representation) -->
+<nav class="md:hidden fixed bottom-0 w-full h-[72px] z-50 bg-surface border-t border-outline-variant flex justify-around items-center px-4">
+<a class="flex flex-col items-center text-secondary" href="index.html">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-secondary" href="services.html">
+<span class="material-symbols-outlined" data-icon="content_cut">content_cut</span>
+<span class="text-label-bold mt-1">Services</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-secondary" href="booking.html">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="text-label-bold mt-1">Book</span>
+</a>
+</nav>
+<main class="pb-[72px] md:pb-0 pt-[72px]">
 <!-- Hero Section -->
 <section class="max-w-container_max_width mx-auto px-gutter text-center fade-in-up">
 <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack_sm">Book Your Appointment</h1>
