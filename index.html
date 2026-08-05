@@ -774,53 +774,88 @@ RTL
         </a>
 </div>
 </section>
-
 </main>
 <!-- Footer Component -->
-<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant pt-section_padding pb-stack_lg w-full">
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-gutter max-w-[1200px] mx-auto px-gutter mb-stack_lg">
-<div class="flex flex-col gap-3">
-<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity">
-<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">content_cut</span>
-            BladeKing
-        </a>
-<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Premium grooming for the modern gentleman. Experience the luxury of a perfect cut.</p>
-<div class="flex items-center gap-2 text-on-surface-variant text-body-sm mt-2">
-<span class="material-symbols-outlined text-secondary text-sm">location_on</span>
-<span>123 Grooming Street, Chennai 600001</span>
-</div>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Navigation</h4>
-<ul class="flex flex-col gap-2 font-body-sm text-body-sm">
-<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a></li>
-<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="services.html">Services</a></li>
-<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="gallery.html">Gallery</a></li>
-<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="blog.html">Blog</a></li>
-<li><a class="text-on-surface-variant hover:text-secondary transition-colors" href="booking.html">Booking</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Hours</h4>
-<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
-<li class="flex justify-between max-w-[180px]"><span>Mon-Fri</span><span>9am - 8pm</span></li>
-<li class="flex justify-between max-w-[180px]"><span>Saturday</span><span>9am - 7pm</span></li>
-<li class="flex justify-between max-w-[180px]"><span>Sunday</span><span class="text-secondary font-semibold">Closed</span></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold text-on-surface mb-4 uppercase tracking-wider">Legal & Booking</h4>
-<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant mb-4">
-<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Cookie Policy</a></li>
-</ul>
-<a href="booking.html" class="inline-block font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-5 py-2.5 rounded hover:bg-secondary-fixed transition-colors text-center">Book Now</a>
-</div>
-</div>
-<div class="max-w-[1200px] mx-auto px-gutter text-center border-t border-outline-variant/30 pt-stack_md">
-<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 BladeKing Barbershop. All Rights Reserved.</p>
-</div>
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full">
+    <!-- Golden accent bar -->
+    <div class="h-1 w-full bg-gradient-to-r from-transparent via-secondary to-transparent opacity-60"></div>
+
+    <!-- Main Footer Content -->
+    <div class="max-w-[1200px] mx-auto px-gutter pt-12 pb-8">
+
+        <!-- Top Section: 2-column on tablet, 4-column on desktop -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+
+            <!-- Brand Column -->
+            <div class="md:col-span-2 lg:col-span-1 flex flex-col gap-4">
+                <a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity w-fit">
+                    <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+                    BladeKing
+                </a>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-[260px]">Premium grooming for the modern gentleman. Experience the luxury of a perfect cut.</p>
+                <div class="flex items-start gap-2 text-on-surface-variant text-body-sm">
+                    <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0">location_on</span>
+                    <span>123 Grooming Street,<br>Chennai 600001</span>
+                </div>
+                <div class="flex items-center gap-2 text-on-surface-variant text-body-sm">
+                    <span class="material-symbols-outlined text-secondary text-base shrink-0">call</span>
+                    <span>+91 98765 43210</span>
+                </div>
+            </div>
+
+            <!-- Navigation Column -->
+            <div class="flex flex-col gap-4">
+                <h4 class="font-label-bold text-label-bold text-on-surface uppercase tracking-widest text-xs border-b border-outline-variant/40 pb-2">Navigation</h4>
+                <ul class="flex flex-col gap-3 font-body-sm text-body-sm">
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-2 group" href="index.html"><span class="w-1 h-1 rounded-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></span>Home</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-2 group" href="services.html"><span class="w-1 h-1 rounded-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></span>Services</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-2 group" href="gallery.html"><span class="w-1 h-1 rounded-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></span>Gallery</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-2 group" href="blog.html"><span class="w-1 h-1 rounded-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></span>Blog</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-2 group" href="booking.html"><span class="w-1 h-1 rounded-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></span>Booking</a></li>
+                    <li><a class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-2 group" href="contact.html"><span class="w-1 h-1 rounded-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></span>Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Hours Column -->
+            <div class="flex flex-col gap-4">
+                <h4 class="font-label-bold text-label-bold text-on-surface uppercase tracking-widest text-xs border-b border-outline-variant/40 pb-2">Hours</h4>
+                <ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant">
+                    <li class="flex justify-between items-center gap-4">
+                        <span>Mon – Fri</span>
+                        <span class="text-on-surface font-medium tabular-nums">9am – 8pm</span>
+                    </li>
+                    <li class="flex justify-between items-center gap-4">
+                        <span>Saturday</span>
+                        <span class="text-on-surface font-medium tabular-nums">9am – 7pm</span>
+                    </li>
+                    <li class="flex justify-between items-center gap-4">
+                        <span>Sunday</span>
+                        <span class="text-secondary font-semibold">Closed</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Legal & CTA Column -->
+            <div class="flex flex-col gap-4">
+                <h4 class="font-label-bold text-label-bold text-on-surface uppercase tracking-widest text-xs border-b border-outline-variant/40 pb-2">Legal</h4>
+                <ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant">
+                    <li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#">Cookie Policy</a></li>
+                </ul>
+                <a href="booking.html" class="mt-2 inline-block font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-5 py-2.5 rounded hover:bg-secondary-fixed transition-colors text-center w-full text-center">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-outline-variant/30 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p class="font-body-sm text-body-sm text-on-surface-variant text-center sm:text-left">© 2024 BladeKing Barbershop. All Rights Reserved.</p>
+            <div class="flex items-center gap-1 text-on-surface-variant text-body-sm">
+                <span class="material-symbols-outlined text-secondary text-sm">favorite</span>
+                <span>Crafted with passion in Chennai</span>
+            </div>
+        </div>
+    </div>
 </footer>
 <!-- Back to Top Button -->
 <button aria-label="Back to Top" id="back-to-top" class="fixed bottom-20 md:bottom-8 right-6 z-50 p-3 rounded-full bg-secondary text-on-secondary shadow-lg hover:bg-secondary-fixed opacity-0 pointer-events-none transition-all duration-300 transform hover:scale-110 focus:outline-none flex items-center justify-center">
