@@ -347,10 +347,6 @@ RTL
 <span>BladeKing</span>
 </a>
 <div class="flex items-center gap-3">
-<button aria-label="Toggle Direction" class="font-button text-xs font-bold px-2.5 py-1 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" title="Toggle RTL/LTR">RTL</button>
-<button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn">
-<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
-</button>
 <button aria-label="Toggle Menu" class="p-2 text-on-surface" id="mobile-menu-btn">
 <span class="material-symbols-outlined">menu</span>
 </button>
@@ -402,6 +398,13 @@ RTL
 </a>
 </nav>
 <div class="mt-auto pt-4 border-t border-outline-variant">
+<div class="flex items-center justify-between mb-4">
+    <button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn flex items-center gap-2">
+        <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+        <span class="text-sm font-semibold">Theme</span>
+    </button>
+    <button aria-label="Toggle Direction" class="font-button text-xs font-bold px-4 py-1.5 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" title="Toggle RTL/LTR">RTL</button>
+</div>
 <a href="booking.html" class="w-full inline-block text-center font-button text-button uppercase tracking-wider px-6 py-3 bg-secondary text-on-secondary hover:bg-secondary-fixed transition-all rounded">Book Now</a>
 </div>
 </aside>
@@ -538,28 +541,28 @@ RTL
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 <div class="text-center group">
 <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-outline group-hover:border-secondary transition-colors mb-4">
-<img alt="Client portrait" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/c9/0c/05/c90c0554b082e4dc2412030ff45e4fce.jpg"/>
+<img alt="Client portrait" class="w-full h-full object-cover object-top" src="https://i.pinimg.com/1200x/c9/0c/05/c90c0554b082e4dc2412030ff45e4fce.jpg"/>
 </div>
 <h3 class="font-label-bold text-label-bold uppercase text-on-surface">Marcus T.</h3>
 <p class="font-body-sm text-secondary mt-1">Client since 2018</p>
 </div>
 <div class="text-center group">
 <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-outline group-hover:border-secondary transition-colors mb-4">
-<img alt="Client portrait" class="w-full h-full object-cover" src="https://i.pinimg.com/736x/b6/f8/6d/b6f86d98994c811985e021c27fd02f76.jpg"/>
+<img alt="Client portrait" class="w-full h-full object-cover object-top" src="https://i.pinimg.com/736x/b6/f8/6d/b6f86d98994c811985e021c27fd02f76.jpg"/>
 </div>
 <h3 class="font-label-bold text-label-bold uppercase text-on-surface">David R.</h3>
 <p class="font-body-sm text-secondary mt-1">Client since 2019</p>
 </div>
 <div class="text-center group">
 <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-outline group-hover:border-secondary transition-colors mb-4">
-<img alt="Client portrait" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/f2/b2/66/f2b26617dc73ab4247053c52748f27fc.jpg"/>
+<img alt="Client portrait" class="w-full h-full object-cover object-top" src="https://i.pinimg.com/1200x/f2/b2/66/f2b26617dc73ab4247053c52748f27fc.jpg"/>
 </div>
 <h3 class="font-label-bold text-label-bold uppercase text-on-surface">Elijah W.</h3>
 <p class="font-body-sm text-secondary mt-1">Client since 2020</p>
 </div>
 <div class="text-center group">
 <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-outline group-hover:border-secondary transition-colors mb-4">
-<img alt="Client portrait" class="w-full h-full object-cover" src="https://i.pinimg.com/736x/77/0c/d7/770cd703c27f6d2c95e4543f76477caf.jpg"/>
+<img alt="Client portrait" class="w-full h-full object-cover object-top" src="https://i.pinimg.com/736x/77/0c/d7/770cd703c27f6d2c95e4543f76477caf.jpg"/>
 </div>
 <h3 class="font-label-bold text-label-bold uppercase text-on-surface">James L.</h3>
 <p class="font-body-sm text-secondary mt-1">Client since 2021</p>
@@ -606,13 +609,13 @@ RTL
 <!-- Footer -->
 <footer class="w-full pt-section_padding pb-stack_lg bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant mt-section_padding">
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-gutter max-w-[1200px] mx-auto px-gutter mb-stack_lg">
-<div class="flex flex-col gap-3">
-<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity">
+<div class="flex flex-col gap-3 md:items-center lg:items-start md:text-center lg:text-left">
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity justify-center lg:justify-start">
 <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">content_cut</span>
             BladeKing
         </a>
 <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Premium grooming for the modern gentleman. Experience the luxury of a perfect cut.</p>
-<div class="flex items-center gap-2 text-on-surface-variant text-body-sm mt-2">
+<div class="flex items-center gap-2 text-on-surface-variant text-body-sm mt-2 md:justify-center lg:justify-start">
 <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
 <span>123 Grooming Street, Chennai 600001</span>
 </div>

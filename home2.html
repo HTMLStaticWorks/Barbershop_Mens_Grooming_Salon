@@ -325,16 +325,10 @@
         <span>BladeKing</span>
     </a>
     <div class="flex items-center gap-3">
-        <button aria-label="Toggle Direction" class="font-button text-xs font-bold px-2.5 py-1 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" title="Toggle RTL/LTR">
-            RTL
-        </button>
-        <button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn">
-            <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
-        </button>
-        <button aria-label="Toggle Menu" class="p-2 text-on-surface" id="mobile-menu-btn">
+<button aria-label="Toggle Menu" class="p-2 text-on-surface" id="mobile-menu-btn">
             <span class="material-symbols-outlined">menu</span>
         </button>
-    </div>
+</div>
 </div>
 
 <!-- Mobile Nav Overlay -->
@@ -382,8 +376,15 @@
         </a>
     </nav>
     <div class="mt-auto pt-4 border-t border-outline-variant">
-        <a href="booking.html" class="w-full inline-block text-center font-button text-button uppercase tracking-wider px-6 py-3 bg-secondary text-on-secondary hover:bg-secondary-fixed transition-all rounded">Book Now</a>
-    </div>
+<div class="flex items-center justify-between mb-4">
+    <button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn flex items-center gap-2">
+        <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+        <span class="text-sm font-semibold">Theme</span>
+    </button>
+    <button aria-label="Toggle Direction" class="font-button text-xs font-bold px-4 py-1.5 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" title="Toggle RTL/LTR">RTL</button>
+</div>
+<a href="booking.html" class="w-full inline-block text-center font-button text-button uppercase tracking-wider px-6 py-3 bg-secondary text-on-secondary hover:bg-secondary-fixed transition-all rounded">Book Now</a>
+</div>
 </aside>
 
 <!-- Mobile Bottom Navigation -->

@@ -365,10 +365,6 @@ RTL
 <span>BladeKing</span>
 </a>
 <div class="flex items-center gap-3">
-<button aria-label="Toggle Direction" class="font-button text-xs font-bold px-2.5 py-1 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" title="Toggle RTL/LTR">RTL</button>
-<button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn">
-<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
-</button>
 <button aria-label="Toggle Menu" class="p-2 text-on-surface" id="mobile-menu-btn">
 <span class="material-symbols-outlined">menu</span>
 </button>
@@ -429,6 +425,13 @@ RTL
     </a>
 </nav>
 <div class="mt-auto pt-4 border-t border-outline-variant">
+<div class="flex items-center justify-between mb-4">
+    <button aria-label="Toggle Theme" class="p-2 text-on-surface hover:text-secondary theme-toggle-btn flex items-center gap-2">
+        <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+        <span class="text-sm font-semibold">Theme</span>
+    </button>
+    <button aria-label="Toggle Direction" class="font-button text-xs font-bold px-4 py-1.5 rounded border border-outline-variant/60 text-on-surface hover:text-secondary hover:border-secondary transition-colors uppercase tracking-wider rtl-toggle-btn" title="Toggle RTL/LTR">RTL</button>
+</div>
 <a href="booking.html" class="w-full inline-block text-center font-button text-button uppercase tracking-wider px-6 py-3 bg-secondary text-on-secondary hover:bg-secondary-fixed transition-all rounded">Book Now</a>
 </div>
 </aside>
@@ -460,6 +463,29 @@ RTL
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
 <a class="font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-8 py-4 rounded hover:bg-secondary-fixed transition-colors duration-300" href="booking.html">Book Appointment</a>
 <a class="font-button text-button uppercase tracking-wider border border-white/40 text-white hover:bg-white/10 transition-colors duration-300 px-8 py-4 rounded" href="services.html">Explore Services</a>
+</div>
+</div>
+</section>
+<!-- Stats/Counters -->
+<section class="py-section_padding bg-surface-container-high">
+<div class="max-w-container_max_width mx-auto px-gutter zoom-in">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-stack_lg text-center">
+<div>
+<p class="font-display-lg text-display-lg text-secondary mb-2">10+</p>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Years Experience</p>
+</div>
+<div>
+<p class="font-display-lg text-display-lg text-secondary mb-2">15k+</p>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Happy Clients</p>
+</div>
+<div>
+<p class="font-display-lg text-display-lg text-secondary mb-2">5</p>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Master Barbers</p>
+</div>
+<div>
+<p class="font-display-lg text-display-lg text-secondary mb-2">50+</p>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Awards Won</p>
+</div>
 </div>
 </div>
 </section>
@@ -599,29 +625,6 @@ RTL
 <span class="material-symbols-outlined text-4xl text-secondary mb-4">workspace_premium</span>
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Premium Products</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">We only use the finest grooming products.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Stats/Counters -->
-<section class="py-section_padding bg-surface-container-high">
-<div class="max-w-container_max_width mx-auto px-gutter zoom-in">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-stack_lg text-center">
-<div>
-<p class="font-display-lg text-display-lg text-secondary mb-2">10+</p>
-<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Years Experience</p>
-</div>
-<div>
-<p class="font-display-lg text-display-lg text-secondary mb-2">15k+</p>
-<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Happy Clients</p>
-</div>
-<div>
-<p class="font-display-lg text-display-lg text-secondary mb-2">5</p>
-<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Master Barbers</p>
-</div>
-<div>
-<p class="font-display-lg text-display-lg text-secondary mb-2">50+</p>
-<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Awards Won</p>
 </div>
 </div>
 </div>
@@ -784,18 +787,20 @@ RTL
     <div class="max-w-[1200px] mx-auto px-gutter pt-12 pb-8">
 
         <!-- Top Section: 2-column on tablet, 4-column on desktop -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10 text-center md:text-left">
 
             <!-- Brand Column -->
-            <div class="md:col-span-2 lg:col-span-1 flex flex-col gap-4">
-                <a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity w-fit">
+            <div class="flex flex-col gap-4 md:items-center lg:items-start md:text-center lg:text-left">
+                <a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity w-fit md:w-auto lg:w-fit">
                     <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">content_cut</span>
                     BladeKing
                 </a>
                 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-[260px]">Premium grooming for the modern gentleman. Experience the luxury of a perfect cut.</p>
-                <div class="flex items-start gap-2 text-on-surface-variant text-body-sm">
-                    <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0">location_on</span>
-                    <span>123 Grooming Street,<br>Chennai 600001</span>
+                <div class="flex items-start gap-2 text-on-surface-variant text-body-sm md:items-center lg:items-start md:flex-col lg:flex-row">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0 md:mt-0">location_on</span>
+                        <span>123 Grooming Street, <span class="md:hidden lg:inline"><br></span>Chennai 600001</span>
+                    </div>
                 </div>
                 <div class="flex items-center gap-2 text-on-surface-variant text-body-sm">
                     <span class="material-symbols-outlined text-secondary text-base shrink-0">call</span>
