@@ -188,13 +188,11 @@
         /* Before/After Slider */
         .before-after-container {
             position: relative;
+            touch-action: pan-y;
         }
         .before-after-container .after-image {
             clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
-            transition: clip-path 0.1s ease;
-        }
-        .before-after-container:hover .after-image {
-            clip-path: polygon(30% 0, 100% 0, 100% 100%, 30% 100%);
+            will-change: clip-path;
         }
 
         /* Lightbox */
@@ -438,14 +436,32 @@ RTL
 <h2 class="font-headline-sm text-headline-sm text-on-surface mb-stack_sm">Featured Transformation</h2>
 <p class="font-body-md text-on-surface-variant">Witness the power of a professional groom.</p>
 </div>
-<div class="relative w-full max-w-4xl mx-auto aspect-video rounded-lg overflow-hidden before-after-container cursor-ew-resize border border-outline-variant/30 zoom-in hover-lift">
-<img alt="Before transformation" class="absolute inset-0 w-full h-full object-cover" src="assets/images/barber_hero.png"/>
-<div class="absolute top-4 left-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded font-label-bold text-label-bold text-white z-10">BEFORE</div>
-<img alt="After transformation" class="after-image absolute inset-0 w-full h-full object-cover" src="assets/images/skin_fade.png"/>
-<div class="absolute top-4 right-4 bg-secondary px-4 py-2 rounded font-label-bold text-label-bold text-on-secondary z-10 pointer-events-none">AFTER</div>
-<div class="absolute inset-y-0 left-1/2 w-1 bg-secondary -translate-x-1/2 z-10 opacity-70"></div>
+<div class="flex flex-wrap justify-center gap-3 mb-6 fade-in-up">
+<button class="ba-tab active px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm border border-secondary bg-secondary/10 text-secondary transition-all" data-after="assets/images/after_transform.png" data-before="assets/images/before_transform.png">
+Skin Fade &amp; Beard
+</button>
+<button class="ba-tab px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm border border-outline/40 bg-surface text-on-surface-variant hover:border-secondary transition-all" data-after="assets/images/after_beard.png" data-before="assets/images/before_beard.png">
+Beard Sculpting
+</button>
+<button class="ba-tab px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm border border-outline/40 bg-surface text-on-surface-variant hover:border-secondary transition-all" data-after="assets/images/after_exec.png" data-before="assets/images/before_exec.png">
+Executive Cut
+</button>
 </div>
-<p class="text-center text-body-sm text-on-surface-variant mt-4 fade-in-up delay-1">Hover over image to slide.</p>
+<div class="relative w-full max-w-4xl mx-auto h-[440px] sm:h-[520px] md:h-[580px] rounded-lg overflow-hidden before-after-container cursor-ew-resize border border-outline-variant/30 zoom-in hover-lift select-none" id="gallery-ba-slider">
+<img alt="Before transformation" class="absolute inset-0 w-full h-full object-cover object-center" id="gallery-ba-before" src="assets/images/before_transform.png"/>
+<div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded font-label-bold text-label-bold text-white z-10 pointer-events-none border border-white/10">BEFORE</div>
+<img alt="After transformation" class="after-image absolute inset-0 w-full h-full object-cover object-center" id="gallery-ba-after" src="assets/images/after_transform.png"/>
+<div class="absolute top-4 right-4 bg-secondary px-4 py-2 rounded font-label-bold text-label-bold text-on-secondary z-10 pointer-events-none shadow-md">AFTER</div>
+<div class="absolute inset-y-0 w-1 bg-secondary z-20 shadow-lg pointer-events-none" id="gallery-ba-divider" style="left: 50%; transform: translateX(-50%);">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border-2 border-secondary text-secondary flex items-center justify-center shadow-xl pointer-events-auto cursor-ew-resize hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg">code</span>
+</div>
+</div>
+</div>
+<p class="text-center text-body-sm text-on-surface-variant mt-4 fade-in-up delay-1 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">swipe</span>
+<span>Drag handle or move cursor across image to compare.</span>
+</p>
 </section>
 <!-- 3. Interactive Gallery Filter & Grid -->
 <section>
@@ -850,6 +866,67 @@ RTL
                 updateRTLUI();
             });
         });
+
+        // Interactive Before & After Transformation Slider
+        const baSlider = document.getElementById('gallery-ba-slider');
+        const baAfterImg = document.getElementById('gallery-ba-after');
+        const baBeforeImg = document.getElementById('gallery-ba-before');
+        const baDivider = document.getElementById('gallery-ba-divider');
+        const baTabs = document.querySelectorAll('.ba-tab');
+
+        if (baSlider && baAfterImg && baDivider) {
+            let isDraggingBA = false;
+
+            function updateBASlider(clientX) {
+                const rect = baSlider.getBoundingClientRect();
+                let pos = ((clientX - rect.left) / rect.width) * 100;
+                if (pos < 0) pos = 0;
+                if (pos > 100) pos = 100;
+                baAfterImg.style.clipPath = `polygon(${pos}% 0, 100% 0, 100% 100%, ${pos}% 100%)`;
+                baDivider.style.left = `${pos}%`;
+            }
+
+            baSlider.addEventListener('mousemove', (e) => {
+                updateBASlider(e.clientX);
+            });
+
+            baSlider.addEventListener('touchmove', (e) => {
+                if (e.touches && e.touches[0]) {
+                    updateBASlider(e.touches[0].clientX);
+                }
+            }, { passive: true });
+
+            baSlider.addEventListener('mousedown', (e) => {
+                isDraggingBA = true;
+                updateBASlider(e.clientX);
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDraggingBA = false;
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (isDraggingBA) {
+                    updateBASlider(e.clientX);
+                }
+            });
+
+            baTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    baTabs.forEach(t => {
+                        t.classList.remove('active', 'border-secondary', 'bg-secondary/10', 'text-secondary');
+                        t.classList.add('border-outline/40', 'bg-surface', 'text-on-surface-variant');
+                    });
+                    tab.classList.add('active', 'border-secondary', 'bg-secondary/10', 'text-secondary');
+                    tab.classList.remove('border-outline/40', 'bg-surface', 'text-on-surface-variant');
+
+                    const beforeSrc = tab.getAttribute('data-before');
+                    const afterSrc = tab.getAttribute('data-after');
+                    if (beforeSrc && baBeforeImg) baBeforeImg.src = beforeSrc;
+                    if (afterSrc && baAfterImg) baAfterImg.src = afterSrc;
+                });
+            });
+        }
     </script>
 </body>
 </html>
