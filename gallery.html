@@ -301,40 +301,23 @@
 <img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-8 h-8 rounded-full border border-secondary/40 object-cover shadow-sm"/>
 <span>BladeKing</span>
 </a>
-<nav class="flex items-center gap-6">
-<div class="relative group">
-    <button class="border-b-2 border-transparent pb-1 flex items-center gap-1 text-on-surface hover:text-secondary transition-colors font-button text-button uppercase tracking-wider focus:outline-none">
-        <span>Home</span>
-        <span class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
-    </button>
-                <div class="absolute top-full left-0 pt-2 w-52 hidden group-hover:block transition-all z-50">
-                    <div class="bg-surface-container border border-outline-variant rounded shadow-xl py-2">
-                        <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
-                            <span class="material-symbols-outlined text-base">storefront</span>
-                            <span>Home 1 (Classic Hub)</span>
-                        </a>
-                        <a href="home2.html" class="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
-                            <span class="material-symbols-outlined text-base">spa</span>
-                            <span>Home 2 (Sanctuary)</span>
-                        </a>
-                    </div>
-                </div>
-</div>
+<a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300" href="index.html">Home 1</a>
+<a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300" href="home2.html">Home 2</a>
 <a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors" href="services.html">Services</a>
 <a class="font-button text-button uppercase tracking-wider text-secondary border-b-2 border-secondary pb-1 scale-95 transition-transform" href="gallery.html">Gallery</a>
 <a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors" href="blog.html">Blog</a>
 <a class="border-b-2 border-transparent pb-1 font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors" href="contact.html">Contact</a>
 </nav>
 <div class="flex items-center gap-3">
-<button aria-label="Toggle Theme" class="text-on-surface hover:text-secondary transition-colors" id="theme-toggle">
-<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+<button aria-label="Toggle Theme" class="w-9 h-9 rounded-full border border-outline-variant/60 bg-surface-container-high/40 text-on-surface hover:text-secondary hover:border-secondary transition-all duration-300 flex items-center justify-center" id="theme-toggle">
+<span class="material-symbols-outlined text-xl" data-icon="dark_mode">dark_mode</span>
 </button>
 <button aria-label="Toggle Direction" id="rtl-toggle" title="Toggle RTL/LTR"
-class="rtl-toggle-btn inline-flex items-center justify-center h-7 px-2.5 rounded-full border border-secondary text-secondary font-bold text-[10px] uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-all duration-300">
+class="rtl-toggle-btn font-button text-button uppercase tracking-wider text-secondary border border-secondary px-3 py-1.5 rounded hover:bg-secondary hover:text-on-secondary transition-all duration-300 inline-flex items-center justify-center text-center whitespace-nowrap">
 RTL
 </button>
 <a href="login.html" class="font-button text-button uppercase tracking-wider text-on-surface hover:text-secondary transition-colors duration-300 bg-transparent border border-outline-variant px-3 py-1.5 rounded inline-block text-center whitespace-nowrap">Login</a>
-<a href="booking.html" class="font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-4 py-1.5 hover:bg-secondary/90 transition-colors inline-block whitespace-nowrap">Book Now</a>
+<a href="booking.html" class="font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-4 py-1.5 rounded hover:bg-secondary-fixed transition-colors duration-300 inline-block text-center whitespace-nowrap shadow-sm">Book Now</a>
 </div>
 </div>
 </header>
@@ -369,18 +352,11 @@ RTL
 </button>
 </div>
 
-<!-- Home Switcher in Mobile Drawer -->
-<div class="flex items-center p-1 bg-surface-container rounded-lg mb-4 border border-outline-variant/40">
-    <a href="index.html" class="flex-1 py-1.5 text-center text-xs font-semibold text-on-surface-variant hover:text-on-surface rounded transition-colors">Home 1</a>
-    <a href="home2.html" class="flex-1 py-1.5 text-center text-xs font-semibold text-on-surface-variant hover:text-on-surface rounded transition-colors">Home 2</a>
-</div>
-
-<nav class="flex flex-col gap-2 flex-grow overflow-y-auto">
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="index.html">
-<span class="material-symbols-outlined">home</span> Home 1 (Classic)
+<span class="material-symbols-outlined">home</span> Home 1
 </a>
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="home2.html">
-<span class="material-symbols-outlined">spa</span> Home 2 (Sanctuary)
+<span class="material-symbols-outlined">spa</span> Home 2
 </a>
 <a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-body-md text-body-md transition-colors" href="services.html">
 <span class="material-symbols-outlined">content_cut</span> Services
@@ -407,24 +383,30 @@ RTL
 </div>
 </aside>
 
-<!-- SideNavBar (Mobile) -->
-<nav class="md:hidden fixed bottom-0 w-full bg-surface border-t border-outline-variant z-50">
-<div class="flex justify-around items-center h-16">
-<a class="flex flex-col items-center text-on-surface-variant hover:text-on-surface" href="index.html">
-<span class="material-symbols-outlined">home</span>
+<!-- Mobile Nav Bottom Bar -->
+<nav aria-label="Mobile Navigation" class="md:hidden fixed bottom-0 left-0 right-0 h-[64px] z-50 bg-surface/95 backdrop-blur-md border-t border-outline-variant flex justify-around items-center px-1 shadow-lg">
+<a class="flex flex-col items-center justify-center flex-1 h-full py-1 text-[10px] font-semibold text-on-surface-variant hover:text-secondary transition-colors" href="index.html">
+<span class="material-symbols-outlined text-xl">home</span>
+<span class="leading-none mt-1">Home</span>
 </a>
-<a class="flex flex-col items-center text-on-surface-variant hover:text-on-surface" href="services.html">
-<span class="material-symbols-outlined">content_cut</span>
+<a class="flex flex-col items-center justify-center flex-1 h-full py-1 text-[10px] font-semibold text-on-surface-variant hover:text-secondary transition-colors" href="services.html">
+<span class="material-symbols-outlined text-xl">content_cut</span>
+<span class="leading-none mt-1">Services</span>
 </a>
-<a class="flex flex-col items-center text-secondary border-t-2 border-secondary pt-1" href="gallery.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">photo_library</span>
+<a class="flex flex-col items-center justify-center flex-1 h-full py-1 text-[10px] font-semibold text-secondary transition-colors" href="gallery.html">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">photo_library</span>
+<span class="leading-none mt-1">Gallery</span>
 </a>
-<a class="flex flex-col items-center text-on-surface-variant hover:text-on-surface" href="booking.html">
-<span class="material-symbols-outlined">calendar_month</span>
+<a class="flex flex-col items-center justify-center flex-1 h-full py-1 text-[10px] font-semibold text-on-surface-variant hover:text-secondary transition-colors" href="blog.html">
+<span class="material-symbols-outlined text-xl">article</span>
+<span class="leading-none mt-1">Blog</span>
 </a>
-</div>
+<a class="flex flex-col items-center justify-center flex-1 h-full py-1 text-[10px] font-semibold text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">
+<span class="material-symbols-outlined text-xl">call</span>
+<span class="leading-none mt-1">Contact</span>
+</a>
 </nav>
-<main class="flex-grow pt-[104px] lg:pt-[152px] pb-section_padding px-gutter max-w-container_max_width mx-auto w-full space-y-section_padding">
+<main class="flex-grow pt-[104px] lg:pt-[152px] pb-[76px] md:pb-section_padding px-gutter max-w-container_max_width mx-auto w-full space-y-section_padding">
 <!-- 1. Hero Section -->
 <section class="text-center">
 <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack_md">Our Work</h1>
@@ -534,6 +516,9 @@ Executive Cut
 </div>
 
 </div>
+<div class="mt-stack_lg text-center fade-in-up">
+<a href="booking.html" class="font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-8 py-3 rounded hover:bg-secondary-fixed transition-colors duration-300 inline-block shadow-sm">Book Your Custom Haircut</a>
+</div>
 </section>
 <!-- 4. Video Tour -->
 <section class="mb-section_padding">
@@ -584,41 +569,46 @@ Executive Cut
 <p class="font-body-sm text-secondary mt-1">Client since 2021</p>
 </div>
 </div>
+<div class="mt-stack_lg text-center fade-in-up">
+<a href="booking.html" class="font-button text-button uppercase tracking-wider border border-secondary text-secondary hover:bg-secondary hover:text-on-secondary px-8 py-3 rounded transition-all duration-300 inline-block shadow-sm">Join Our Hall of Fame</a>
+</div>
 </section>
 <!-- 6. Instagram Feed Integration -->
 <section>
-<div class="flex items-center justify-between mb-stack_md">
-<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<div class="text-center mb-stack_md fade-in-up">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center justify-center gap-2">
 <span class="material-symbols-outlined text-secondary">photo_camera</span>
         @BladeKingBarbers
-    </h2>
-<a class="font-button text-button uppercase text-secondary hover:text-on-surface transition-colors" href="#">Follow Us</a>
+</h2>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-<a class="block relative group overflow-hidden rounded-sm aspect-square bg-surface-container" href="#">
+<a class="block relative group overflow-hidden rounded aspect-square bg-surface-container" href="https://instagram.com" target="_blank">
 <img alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://i.pinimg.com/736x/4c/52/56/4c5256619805526f82cbe5dd3a7f4f07.jpg"/>
 <div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface text-3xl">favorite</span>
+<span class="material-symbols-outlined text-secondary text-3xl">favorite</span>
 </div>
 </a>
-<a class="block relative group overflow-hidden rounded-sm aspect-square bg-surface-container" href="#">
+<a class="block relative group overflow-hidden rounded aspect-square bg-surface-container" href="https://instagram.com" target="_blank">
 <img alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://i.pinimg.com/736x/6e/ad/91/6ead912ceb43c93b8e189d1eb802845f.jpg"/>
 <div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface text-3xl">favorite</span>
+<span class="material-symbols-outlined text-secondary text-3xl">favorite</span>
 </div>
 </a>
-<a class="block relative group overflow-hidden rounded-sm aspect-square bg-surface-container" href="#">
+<a class="block relative group overflow-hidden rounded aspect-square bg-surface-container" href="https://instagram.com" target="_blank">
 <img alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://i.pinimg.com/736x/ef/55/ac/ef55acaed134cf97d2a5f9f1e4815295.jpg"/>
 <div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface text-3xl">favorite</span>
+<span class="material-symbols-outlined text-secondary text-3xl">favorite</span>
 </div>
 </a>
-<a class="block relative group overflow-hidden rounded-sm aspect-square bg-surface-container" href="#">
+<a class="block relative group overflow-hidden rounded aspect-square bg-surface-container" href="https://instagram.com" target="_blank">
 <img alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://i.pinimg.com/736x/c1/d9/6c/c1d96c1f7a256e1a4dc31da44d715178.jpg"/>
 <div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface text-3xl">favorite</span>
+<span class="material-symbols-outlined text-secondary text-3xl">favorite</span>
 </div>
 </a>
+</div>
+<div class="mt-stack_lg text-center fade-in-up">
+<a href="https://instagram.com" target="_blank" class="font-button text-button uppercase tracking-wider bg-secondary text-on-secondary px-8 py-3 rounded hover:bg-secondary-fixed transition-colors duration-300 inline-block shadow-sm">Follow @BladeKingBarbers On Instagram</a>
 </div>
 </section>
 </main>
@@ -626,10 +616,10 @@ Executive Cut
 <footer class="w-full pt-section_padding pb-stack_lg bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant mt-section_padding">
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-gutter max-w-[1200px] mx-auto px-gutter mb-stack_lg">
 <div class="flex flex-col gap-3 md:items-center lg:items-start md:text-center lg:text-left">
-<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2 hover:opacity-80 transition-opacity justify-center lg:justify-start">
-<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">content_cut</span>
-            BladeKing
-        </a>
+<a href="index.html" class="font-headline-md text-headline-md text-on-surface flex items-center gap-2.5 hover:opacity-80 transition-opacity justify-center lg:justify-start">
+<img src="assets/images/favicon.png" alt="BladeKing Logo" class="w-8 h-8 rounded-full border border-secondary/40 object-cover shadow-sm shrink-0"/>
+<span>BladeKing</span>
+</a>
 <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Premium grooming for the modern gentleman. Experience the luxury of a perfect cut.</p>
 <div class="flex items-center gap-2 text-on-surface-variant text-body-sm mt-2 md:justify-center lg:justify-start">
 <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
@@ -667,8 +657,8 @@ Executive Cut
 </div>
 </footer>
 <!-- Back to Top Button -->
-<button aria-label="Back to Top" id="back-to-top" class="fixed bottom-20 md:bottom-8 right-6 z-50 p-3 rounded-full bg-secondary text-on-secondary shadow-lg hover:bg-secondary-fixed opacity-0 pointer-events-none transition-all duration-300 transform hover:scale-110 focus:outline-none flex items-center justify-center">
-<span class="material-symbols-outlined text-2xl">arrow_upward</span>
+<button aria-label="Back to Top" id="back-to-top" class="fixed bottom-[74px] right-3 md:bottom-8 md:right-6 z-40 p-2.5 rounded-full bg-secondary text-on-secondary shadow-lg hover:bg-secondary-fixed opacity-0 pointer-events-none transition-all duration-300 transform hover:scale-110 focus:outline-none flex items-center justify-center">
+<span class="material-symbols-outlined text-xl md:text-2xl">arrow_upward</span>
 </button>
 <!-- Lightbox Overlay -->
 <div class="lightbox-overlay fixed inset-0 z-[100] bg-background/95 backdrop-blur-md hidden items-center justify-center p-4 cursor-pointer" id="lightbox">
